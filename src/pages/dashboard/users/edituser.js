@@ -1,0 +1,119 @@
+import { useState } from "react"
+import Loading from '../../loading/loading'
+
+import Spinner from 'react-bootstrap/Spinner';
+import './users.css'
+
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import { Axios } from "../../../api/axios";
+import { useParams } from "react-router-dom";
+
+
+
+
+export default  function Edituser(){
+
+const[name,setname]=useState('');
+const[email,setemail]=useState('');
+const[disable,setdiable]=useState(true);
+const [role,setrole]=useState('');
+const[loading,setloading]=useState(false);
+const[loading2,setloading2]=useState(false);
+const {id} =useParams();
+useState(()=>{
+setloading2(true);
+    Axios.get('/user/'+id).then(data=>{
+
+        setname(data.data.name)
+        setemail(data.data.email)
+        setrole(data.data.role)
+    }).then(()=>{setdiable(false);setloading2(false)}).catch(e=>{
+        window.location.replace('/notfound')
+    })
+},[])
+async function edit(){
+
+setloading(true);
+    try {
+        await
+        Axios.post('/user/edit/'+id,{
+            name:name,
+            email:email,
+            role:role
+        });
+
+       window.location.pathname='/dashboard/users'
+
+    } catch (error) {
+        console.log(error);
+        setloading(false)
+
+    }
+}
+
+
+return(
+
+<div className="allparente">
+
+
+<div  className="edituserform">
+
+    {loading2?     <div style={{position:'absolute',display:'flex',alignItems:'center',justifyContent:'center',height:'50%',width:'82%' }}>
+
+<Spinner  animation="border" role="status">
+<span className="visually-hidden">Loading...</span>
+</Spinner>
+
+</div> :  <>
+<h2 style={{ textAlign:'start',width:'fit-content'}}>Edit User</h2>
+<p className="textw">Edit user's email and name</p>
+<hr></hr>
+<hr></hr>
+
+<Form style={{display:'flex',flexFlow:'column'}} >
+<Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+        <Form.Label>Username</Form.Label>
+        <Form.Control type="text" placeholder="username"  name="email"  value={name}  onChange={e=>setname(e.target.value)} required />
+      </Form.Group>
+
+  <Form.Group className="mb-3" controlId="formPlaintextPassword">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control type="email" placeholder="name@example.com"  name="password"  value={email} onChange={e=>setemail(e.target.value)} required minLength='8'/>
+      </Form.Group>
+      <Form.Select  onChange={(e)=>setrole(e.target.value)}  value={role} aria-label="Default select example" className="mb-5">
+   {disable? <option  style={{fontWeight:'500'}}>Select Role</option> : <> <option value='1995'>Admin</option>
+      <option value='2001'>User</option>
+      <option value='1996'>Writer</option>
+      <option value='1999'>Product Manager</option>
+      </>}
+
+    </Form.Select>
+
+    <Button onClick={edit} style={{
+   alignSelf:'center',
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        gap:'10%',
+        width:'40%'
+    }} disabled={disable}>
+    { loading && <Loading></Loading>}
+ Confirm</Button>
+    <hr></hr>
+
+</Form>   </>}
+
+
+</div>
+
+</div>
+
+
+)
+
+
+
+
+}

@@ -1,0 +1,4 @@
+.dparent{
+    display: flex;
+    flex-direction: column;
+}
