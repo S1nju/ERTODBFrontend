@@ -43,6 +43,9 @@ try {
         const token = res.data;
         console.log(token);
         cookie.set('token',token)
+    }else{
+
+        seterrtxt('Invalid Email Or password');
     }
 
 
