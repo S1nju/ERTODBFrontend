@@ -34,7 +34,7 @@ function App() {
   Axios.interceptors.response.use(
   (response) => response,
   (error) => {
-    if ((error.response.status === 401 )&& cookie.get("token")!==null) {
+    if ((error.response.status === 401 )&& (cookie.get("token")!=null)) {
       cookie.remove("token"); // Remove the token
       console.log("Token has expired and has been removed.");
       window.location.href = "/login";
