@@ -5,10 +5,18 @@ import { Button, Typography } from '@mui/material'
 import Wave from 'react-wavify'
 import TiltedCard from '../../../blocks/Components/TiltedCard/TiltedCard'
 import TextPressure from '../../../blocks/TextAnimations/TextPressure/TextPressure'
-import  BlobCursor from '../../../blocks/Animations/BlobCursor/BlobCursor'
+import LogoWall from '../../../blocks/Components/LogoWall/LogoWall';
+
 import SpotlightCard from '../../../blocks/Components/SpotlightCard/SpotlightCard'
 import { NavLink } from 'react-router-dom'
 export default function Landing() {
+  const logoImgs = [
+    { imgUrl: require('./1567361.png'), altText: "ERTODB" },
+    { imgUrl: require('./6742694.png'), altText: "ERTODB" },
+    { imgUrl: require('./OIP (1).jpg'), altText: "ERTODB" },
+    { imgUrl:  require('./OIP (2).jpg'), altText: "ERTODB" },
+    { imgUrl:  require('./OIP (3).jpg'), altText: "ERTODB" },
+  ];
     const footerStyles = {
         backgroundColor: "#222",
         color: "#fff",
@@ -81,7 +89,7 @@ export default function Landing() {
    <div id='home' style={{
     display:"flex",
     flexFlow:"column",
-    paddingTop:"150px",
+    paddingTop:"120px",
     margin:"0",
     textAlign:"center",
     alignItems:"center",
@@ -97,10 +105,24 @@ export default function Landing() {
     Conception of ER diagrams to
      to use in your next sql applications for varios sgbd</Typography> 
 <NavLink to="/dashboard/newDb"><Button variant='contained' sx={{marginTop:"30px"}}>start Editing</Button></NavLink>
+ 
 
+
+
+<div style={{height: 'auto', width: '100%', position: 'relative'}}>
+  <LogoWall
+    items={logoImgs}
+    direction='horizontal'
+    pauseOnHover={true}
+    size='clamp(8rem, 1rem + 20vmin, 25rem)'
+    duration='60s'
+    bgColor='#fff'
+    bgAccentColor='#fff'
+  />  
+</div>
 <Wave fill='royalblue'
         paused={false}
-        style={{ display: 'flex' ,marginTop:"30px"}}
+        style={{ display: 'flex'}}
         options={{
           height: 20,
           amplitude: 20,
