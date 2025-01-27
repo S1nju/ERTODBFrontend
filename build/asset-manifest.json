@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/ertodb/static/css/main.9e60d98c.css",
+    "main.js": "/ertodb/static/js/main.b6c64ea6.js",
+    "static/media/bqck.jpg": "/ertodb/static/media/bqck.f1cd37cb09f8c95a2391.jpg",
+    "static/media/BWWG.webp": "/ertodb/static/media/BWWG.651ca67c3f3028b02174.webp",
+    "static/media/fa-solid-900.ttf": "/ertodb/static/media/fa-solid-900.07ed6d5fa32c1d54af0f.ttf",
+    "static/media/sobs.png": "/ertodb/static/media/sobs.9b559949fef437c247e0.png",
+    "static/media/fa-brands-400.ttf": "/ertodb/static/media/fa-brands-400.0ff70dcbf135d859ebf3.ttf",
+    "static/media/fa-solid-900.woff2": "/ertodb/static/media/fa-solid-900.93f719f4d62bfa3e748c.woff2",
+    "static/media/fa-brands-400.woff2": "/ertodb/static/media/fa-brands-400.bb8d5a145e22822103fb.woff2",
+    "static/media/fa-regular-400.ttf": "/ertodb/static/media/fa-regular-400.17a6e1aebccdbaa39e78.ttf",
+    "static/media/446ee1af-ec90-4577-80f7-e10a52afd04b.jpg": "/ertodb/static/media/446ee1af-ec90-4577-80f7-e10a52afd04b.7e7c16a4e0aa6781dece.jpg",
+    "static/media/c1d644c9-3170-4dfc-ad96-f74a423e6e2f.jpg": "/ertodb/static/media/c1d644c9-3170-4dfc-ad96-f74a423e6e2f.57bf9ba173c4d9054650.jpg",
+    "static/media/86fb7861-d698-4513-83af-70967740814c.jpg": "/ertodb/static/media/86fb7861-d698-4513-83af-70967740814c.1cc2730560acc374020b.jpg",
+    "static/media/fa-regular-400.woff2": "/ertodb/static/media/fa-regular-400.bc3722686635b5f86132.woff2",
+    "static/media/fa-v4compatibility.ttf": "/ertodb/static/media/fa-v4compatibility.0f6cb412603527bda691.ttf",
+    "static/media/fa-v4compatibility.woff2": "/ertodb/static/media/fa-v4compatibility.6cfec8414be20e2c3426.woff2",
+    "static/media/favicon.ico": "/ertodb/static/media/favicon.4fe75d5f9adb18067b85.ico",
+    "index.html": "/ertodb/index.html",
+    "main.9e60d98c.css.map": "/ertodb/static/css/main.9e60d98c.css.map",
+    "main.b6c64ea6.js.map": "/ertodb/static/js/main.b6c64ea6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9e60d98c.css",
+    "static/js/main.b6c64ea6.js"
+  ]
+}
