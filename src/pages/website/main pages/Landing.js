@@ -221,7 +221,7 @@ it gives you the ability to create !
     <div></div>
 
       
-<SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(255, 255, 255, 0.4)">
+<SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(255, 255, 255, 0.4)" style={{marginBottom:"10px"}}>
 <i class="fa fa-lock" style={{color:"white"}}></i>
 <h2 style={{color:"white"}}>Created by</h2>
 <p style={{color:"white"}}>Bouhaik anes mohammed el amine</p>

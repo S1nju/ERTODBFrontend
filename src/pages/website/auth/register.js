@@ -34,7 +34,7 @@ try {
     await axios.post(baseurl+'/auth/'+register,form)
   
     if(res.status===200){
-        window.location.pathname='/ertodb/'
+        window.location.pathname='/'
         setloading(false)
 
         const token = res.data;

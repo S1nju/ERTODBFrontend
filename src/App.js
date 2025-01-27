@@ -25,21 +25,23 @@ import Landing from "./pages/website/main pages/Landing";
 import { Axios } from "./api/axios";
 import Cookie from 'cookie-universal'
 
+
+
+
+
 function App() {
-  const cookie = Cookie()
-
-
+   const cookie = Cookie()
   Axios.interceptors.response.use(
-    (response) => response,
-    (error) => {
-      if (error.response.status === 401) {
-        cookie.remove("token"); // Remove the token
-        console.log("Token has expired and has been removed.");
-        window.location.href = "/login";
-      }
-      return Promise.reject(error);
+  (response) => response,
+  (error) => {
+    if ((error.response.status === 401 )&& (cookie.get("token")!=null)) {
+      cookie.remove("token"); // Remove the token
+      console.log("Token has expired and has been removed.");
+      window.location.href = "/login";
     }
-  );
+    return Promise.reject(error);
+  }
+);
   return (
     <div className="App" style={{ height: '100%' , width:"100%" }}>
 
