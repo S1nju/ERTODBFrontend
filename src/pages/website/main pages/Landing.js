@@ -130,7 +130,7 @@ export default function Landing() {
     
     
     </Typography> 
-
+<div>
 <TiltedCard
   imageSrc={require("../../../assets/c1d644c9-3170-4dfc-ad96-f74a423e6e2f.jpg")}
   altText="ERTODB"
@@ -144,14 +144,13 @@ export default function Landing() {
   showMobileWarning={false}
   showTooltip={true}
   displayOverlayContent={true}
-  overlayContent={
- 
-     <p className="tilted-card-demo-text" style={{fontWeight:"600"}}>
+/>
+<p className="tilted-card-demo-text" style={{fontWeight:"500",fontSize:"25px",color:"white"}}>
      Save Your Diagrams
       <hr style={{backgroundColor:"black",marginTop:"0"}}></hr>
     </p>
-  }
-/>
+</div>
+<div>
 <TiltedCard
   imageSrc={require("../../../assets/86fb7861-d698-4513-83af-70967740814c.jpg")}
   altText="ERTODB"
@@ -165,15 +164,14 @@ export default function Landing() {
   showMobileWarning={false}
   showTooltip={true}
   displayOverlayContent={true}
-  overlayContent={
-   
 
-     <p className="tilted-card-demo-text" style={{fontWeight:"600",color:""}}>
+/>
+<p className="tilted-card-demo-text" style={{fontWeight:"500",fontSize:"25px",color:"white"}}>
      Easy to deal with
       <hr style={{backgroundColor:"black",marginTop:"0"}}></hr>
     </p>
-  }
-/>
+</div>
+<div>
 <TiltedCard
   imageSrc={require("../../../assets/446ee1af-ec90-4577-80f7-e10a52afd04b.jpg")}
   altText="ERTODB"
@@ -187,13 +185,13 @@ export default function Landing() {
   showMobileWarning={false}
   showTooltip={true}
   displayOverlayContent={true}
-  overlayContent={
-    <p className="tilted-card-demo-text" style={{fontWeight:"600"}}>
+ 
+/>
+<p className="tilted-card-demo-text" style={{fontWeight:"500",fontSize:"25px",color:"white"}} >
       Fast and Secure
       <hr style={{backgroundColor:"black",marginTop:"0"}}></hr>
     </p>
-  }
-/>
+</div>
   </div>
     </div>
     <div id="about" style={{display:"flex",
@@ -221,7 +219,7 @@ it gives you the ability to create !
     <div></div>
 
       
-<SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(255, 255, 255, 0.4)" style={{marginBottom:"10px"}}>
+<SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(255, 255, 255, 0.4)" style={{marginBottom:"50px"}}>
 <i class="fa fa-lock" style={{color:"white"}}></i>
 <h2 style={{color:"white"}}>Created by</h2>
 <p style={{color:"white"}}>Bouhaik anes mohammed el amine</p>
