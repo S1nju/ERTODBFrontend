@@ -13,6 +13,7 @@ export default function Landing() {
         backgroundColor: "#222",
         color: "#fff",
         padding: "20px 0",
+        marginTop:"20px"
       };
     
       const containerStyles = {
@@ -219,7 +220,7 @@ it gives you the ability to create !
     <div></div>
 
       
-<SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(255, 255, 255, 0.4)" style={{marginBottom:"50px"}}>
+<SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(255, 255, 255, 0.4)" >
 <i class="fa fa-lock" style={{color:"white"}}></i>
 <h2 style={{color:"white"}}>Created by</h2>
 <p style={{color:"white"}}>Bouhaik anes mohammed el amine</p>
