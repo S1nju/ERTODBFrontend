@@ -14,9 +14,6 @@ import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import SplitText from '../../blocks/TextAnimations/SplitText/SplitText'
 import StorageIcon from '@mui/icons-material/Storage'; 
 import { Avatar, Button, Card, CardContent, Typography,CardActions, Link, Box } from "@mui/material";
-import { Gauge } from '@mui/x-charts/Gauge';
-import { LineChart } from '@mui/x-charts/LineChart';
-import { BarChart } from '@mui/x-charts/BarChart';
 
 
 
