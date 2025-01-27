@@ -96,7 +96,7 @@ return(<div className="allparent">
         gap:'10%',
         width:'100%'
 
-    }}>{(loading)? <><Loading></Loading></>:'Login'}</Button>
+    }}>{(loading)? <><Loading></Loading></>:<p>Login</p>}</Button>
     <hr></hr>
     <Button onClick={()=>  setloading2(true)} style={{
 
