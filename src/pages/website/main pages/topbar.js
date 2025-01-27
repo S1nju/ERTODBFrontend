@@ -76,9 +76,12 @@ async function hlogout(){
 
 
   return (
-     <AppBar sx={{
+    
+     <AppBar   position="fixed"
+     sx={{
       zIndex:70,
-      MaxWidth:"100vw",
+       width: '100%',
+       overflowX: 'hidden', // Prevent horizontal overflow
      }}>
       <Container maxWidth="xl">
  

@@ -1,15 +1,10 @@
-:root{
-  color-scheme: light dark;
-}
 
 
-#app {
+
+.app {
  display: flex;
  flex-direction: column;
 
- background-color: light-dark(#fff,#444);
- color:light-dark(#444,#fff) ;
- 
 }
 .table{
   background-color: transparent;

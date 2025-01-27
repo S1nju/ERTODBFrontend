@@ -89,7 +89,7 @@ export default function Landing() {
    <div id='home' style={{
     display:"flex",
     flexFlow:"column",
-    paddingTop:"120px",
+    paddingTop:"100px",
     margin:"0",
     textAlign:"center",
     alignItems:"center",

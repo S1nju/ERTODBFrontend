@@ -5,6 +5,6 @@ import './App.css'
 export default function Home(){
 
 
-    return <> 
-    <TTopbar ></TTopbar><Reactflow></Reactflow></>
+    return <div className='app'> 
+    <TTopbar ></TTopbar><Reactflow></Reactflow></div>
 }
