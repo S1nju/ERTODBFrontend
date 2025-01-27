@@ -14,14 +14,4 @@ export const Axios = axios.create({
 }
     
    )
-Axios.interceptors.response.use(
-    (response) => response,
-    (error) => {
-      if (error.response.status === 401) {
-        Cookies.remove("token"); // Remove the token
-        console.log("Token has expired and has been removed.");
-        window.location.href = "/login";
-      }
-      return Promise.reject(error);
-    }
-  );
+
