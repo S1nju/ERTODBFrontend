@@ -7,9 +7,7 @@ import Loading from "../../loading/loading"
 import Cookie from 'cookie-universal'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Alert from 'react-bootstrap/Alert';
-import { useRef } from "react"
-import { useEffect } from "react"
+import Alert from 'react'
 
 export default  function Login(){
 const [form,setform]=useState({

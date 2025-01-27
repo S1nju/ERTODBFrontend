@@ -1,4 +1,4 @@
-export const baseurl = 'http://localhost:8080/api';
+export const baseurl = 'https://ertodbbackend-production.up.railway.app/api';
 export const register = 'register';
 export const login = 'login';
 

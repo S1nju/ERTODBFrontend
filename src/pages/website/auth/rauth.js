@@ -17,7 +17,7 @@ export default function Rauth({allowedRole}){
              Axios.get('/auth/'+user).then(d=>{setu(d)
              })
         } catch (e) { console.log(e)
-            window.location.pathname='/login'
+            window.location.pathname='/ertodb/login'
         }
     },[])
     return(cookie.get('token')?( u===''? <Loading></Loading>:  ( u.data.authorities.filter((authority,i) => { return authority.authority === allowedRole[i]})? <Outlet></Outlet> :  <Err403></Err403>) ):<Navigate to='/login' replace={true}></Navigate>)

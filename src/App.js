@@ -46,13 +46,13 @@ function App() {
 
 
 
-  <Route path="/editor/db/:id" element={
+  <Route path="editor/db/:id" element={
   <Home></Home>}></Route></Route>
 <Route element={<Rauth allowedRole={[ 'USER', 'ADMIN']}></Rauth>}>
 
 
 
-<Route path="/dashboard" element={
+<Route path="dashboard" element={
 <Dashboard></Dashboard>}>
 <Route path="403" element={
 <Err403></Err403>}></Route>

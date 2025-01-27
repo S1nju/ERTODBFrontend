@@ -34,7 +34,7 @@ try {
     await axios.post(baseurl+'/auth/'+register,form)
   
     if(res.status===200){
-        window.location.pathname='/'
+        window.location.pathname='/ertodb/'
         setloading(false)
 
         const token = res.data;
@@ -70,7 +70,7 @@ return(
        <i className="fa-solid fa-xmark"></i>
           </Button>  </Alert>}
 
-<h2>Welcome to sobstore</h2>
+<h2>Welcome to ERTODB</h2>
 <p className="textw">Register and join us Its easy!</p>
 <hr></hr>
 <hr></hr>

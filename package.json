@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "homepage": "https://s1nju.github.io/",
+  "homepage": "https://s1nju.github.io/ertodb",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.14.0",
