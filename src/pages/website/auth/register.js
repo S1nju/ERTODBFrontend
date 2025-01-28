@@ -34,13 +34,18 @@ try {
     await axios.post(baseurl+'/auth/'+register,form)
   
     if(res.status===200){
+        if(form.email==""||form.password==""||form.username==""){
+            setshow(true)  
+            setloading(false)
+            seterrtxt('Please fill the inputs');
+        }else{
         window.location.pathname='/'
         setloading(false)
 
         const token = res.data;
         console.log(token);
         cookie.set('token',token)
-   
+        }
     }
     
 } catch (error) {
