@@ -43,8 +43,12 @@ const datashow = data.map((item,key)=>{  return( <TableRow
 { return    item2.id==='authority'?<TableCell key={key2} >USER</TableCell>: <TableCell key={key2} >{item[item2.id] } </TableCell> }
 
 )}
-              <TableCell style={{display:'flex',gap:'8px'}}><NavLink to={`/editor/db/${item.id}`}>
-            <Button><i className="fa-solid fa-pencil"></i></Button></NavLink>
+              <TableCell style={{display:'flex',gap:'8px'}}>{
+                
+                type==='user'?<NavLink to={`/dashboard/user/${item.id}`}>
+            <Button><i className="fa-solid fa-pencil"></i></Button></NavLink>:
+                <NavLink to={`/editor/db/${item.id}`}>
+            <Button><i className="fa-solid fa-pencil"></i></Button></NavLink>}
 
             <Button onClick={()=>handledelete(item.id)} variant="danger"><i className="fa-regular fa-trash-can"></i></Button>   </TableCell>
 
