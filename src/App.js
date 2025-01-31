@@ -5,7 +5,6 @@ import Register from "./pages/website/auth/register";
 import Home from "./pages/website/main pages/Home";
 import './assets/all.min.css'
 import Users from "./pages/dashboard/users/users";
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dashboard from "./pages/dashboard/dashboard";
 import Rauth from "./pages/website/auth/rauth";
@@ -15,9 +14,6 @@ import Err403 from "./pages/website/auth/403";
 import Err404 from "./pages/website/auth/404";
 import Logincallback from "./pages/website/auth/logincallback";
 import Databases from "./pages/dashboard/product/Databases";
-import Catg from "./pages/dashboard/product/catg/catg";
-import Addcat from "./pages/dashboard/product/catg/addcatg";
-import Editcatg from "./pages/dashboard/product/catg/editcat";
 import AddDB from "./pages/dashboard/product/addDB";
 import Landing from "./pages/website/main pages/Landing";
 import { Axios } from "./api/axios";
@@ -58,41 +54,19 @@ function App() {
 <Redirect></Redirect>}></Route>
 <Route path="/*" element={
 <Err404></Err404>}></Route>
-
   <Route element={<Rauth allowedRole={[ 'USER', 'ADMIN']}></Rauth>}>
-
-
-
   <Route path="editor/db/:id" element={
   <Home></Home>}></Route></Route>
 <Route element={<Rauth allowedRole={[ 'USER', 'ADMIN']}></Rauth>}>
-
-
-
 <Route path="dashboard" element={
 <Dashboard></Dashboard>}>
 <Route path="403" element={
 <Err403></Err403>}></Route>
-
 <Route element={<Rauth allowedRole={['USER','ADMIN']}></Rauth>}>
-
-<Route path="categories" element={
-<Catg></Catg>}></Route>
-<Route path="categories/:id" element={
-<Editcatg></Editcatg>}></Route>
-
-<Route path="newcatg" element={
-<Addcat></Addcat>}></Route>
-
-
 <Route path="dbs" element={
 <Databases></Databases>}></Route>
-
 <Route path="newDb" element={
 <AddDB></AddDB>}></Route>
-
-
-
 </Route>
 <Route element={<Rauth allowedRole={['ADMIN']}></Rauth>}>
 
