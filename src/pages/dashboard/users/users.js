@@ -56,8 +56,6 @@ const headerdata= [
                <Avatar alt={user.name} src="/static/images/avatar/2.jpg" style={{height:'71px',width:'71px'}} /><div><h4>{Loading?'loading..':user.name}</h4><p style={{color:'gray'}}>You can add , edit and delete users here</p></div></div></div>
                <div>
                <NavLink to='/dashboard/user'>  <Button>Add New User</Button></NavLink>
-               <NavLink style={{textDecoration:'none'}} to={`${user.principal.user.id}`}>  <Button>Edit Your user</Button></NavLink>
-
                 <hr></hr>
                 <Tdata header={headerdata} data={filteredusers} loading={Loading} type={'user'} handle={setdelete}></Tdata>
 
