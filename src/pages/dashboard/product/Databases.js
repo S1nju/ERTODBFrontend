@@ -6,7 +6,6 @@ import '../users/users.css'
 import Button from 'react-bootstrap/Button';
 import { NavLink } from "react-router-dom";
 import { Axios } from "../../../api/axios";
-import Image from 'react-bootstrap/Image';
 import Tdata from "../dashboardcomp/table";
 import { Avatar } from "@mui/material";
 
@@ -26,15 +25,6 @@ export default function Products(){
      setloading(true);
         Axios.get('/db/'+prods).then(data=>{setProduct(data.data)
         }).then(()=>setloading(false)).catch(err=>console.log(err))
-
-
-
-
-
-
-console.log(Products)
-
-
     },[delete2])
 
 

@@ -20,7 +20,6 @@ import { Avatar, Button, Card, CardContent, Typography,CardActions } from "@mui/
 
 export default function Dashboard(){
     const [u,setu]=useState("");
-    const [dash,setdash]=useState(false);
       const  [NAVIGATION,setNav] = useState([
         {
           kind: 'header',
@@ -44,7 +43,6 @@ export default function Dashboard(){
              Axios.get('/auth/'+user).then(d=>{
     
                 setu(d.data);
-                console.log(u)
                 if(d.data.authorities.filter((authority,i) => { return authority.authority === 'ADMIN'}).length>0){
     
                     setNav([{
@@ -96,17 +94,11 @@ export default function Dashboard(){
 
 
 
-        } catch (e) { console.log(e)
+        } catch (e) {
 
             window.location.pathname='/login'
 
         }
-
-
-
-
-
-
     },[])
 
   
@@ -130,6 +122,7 @@ export default function Dashboard(){
         height,
         content: '" "',
       }));
+      console.log(Skeleton)
       
     return(<AppProvider
         navigation={NAVIGATION}

@@ -12,15 +12,13 @@ import Rauth from "./pages/website/auth/rauth";
 import Edituser from "./pages/dashboard/users/edituser";
 import Adduser from "./pages/dashboard/users/adduser";
 import Err403 from "./pages/website/auth/403";
-import Writer from "./pages/dashboard/writer pages/writer";
 import Err404 from "./pages/website/auth/404";
 import Logincallback from "./pages/website/auth/logincallback";
-import Products from "./pages/dashboard/product/products";
+import Databases from "./pages/dashboard/product/Databases";
 import Catg from "./pages/dashboard/product/catg/catg";
 import Addcat from "./pages/dashboard/product/catg/addcatg";
 import Editcatg from "./pages/dashboard/product/catg/editcat";
-import Addproduct from "./pages/dashboard/product/addproduct";
-import Editproduct from "./pages/dashboard/product/Editproduct";
+import AddDB from "./pages/dashboard/product/addDB";
 import Landing from "./pages/website/main pages/Landing";
 import { Axios } from "./api/axios";
 import Cookie from 'cookie-universal'
@@ -88,14 +86,12 @@ function App() {
 
 
 <Route path="dbs" element={
-<Products></Products>}></Route>
+<Databases></Databases>}></Route>
 
 <Route path="newDb" element={
-<Addproduct></Addproduct>}></Route>
+<AddDB></AddDB>}></Route>
 
 
-<Route path="products/:id" element={
-<Editproduct></Editproduct>}></Route>
 
 </Route>
 <Route element={<Rauth allowedRole={['ADMIN']}></Rauth>}>
@@ -110,16 +106,6 @@ function App() {
 <Adduser></Adduser>}></Route></Route>
 
 
-<Route element={<Rauth allowedRole={['1996','1995']}></Rauth>}>
-
-<Route path="write" element={
-<Writer></Writer>}></Route>
-
-
-
-
-
-</Route>
 
 
 </Route></Route>

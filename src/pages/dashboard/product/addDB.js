@@ -14,7 +14,7 @@ import Alert from 'react-bootstrap/Alert';
 
 
 
-export default  function Addproduct(){
+export default  function AddDB(){
 
   const [form,setform]=useState({
   

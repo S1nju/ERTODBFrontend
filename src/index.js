@@ -4,18 +4,16 @@ import './index.css';
 import App from './App';
 import {BrowserRouter} from 'react-router-dom'
 import Hamberger from './contex/hamburger';
-import Wsize from './contex/windowsize';
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-<Wsize>
     <Hamberger>
 
     <BrowserRouter>
-    <App /></BrowserRouter></Hamberger></Wsize>
+    <App /></BrowserRouter></Hamberger>
   </React.StrictMode>
 );
 
