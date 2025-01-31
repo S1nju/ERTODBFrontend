@@ -58,7 +58,7 @@ const headerdata= [
 
                <div>
                <NavLink to='/dashboard/user'>  <Button>Add New User</Button></NavLink>
-               <NavLink style={{textDecoration:'none'}} to={`${user.id}`}>  <Button>Edit Your user</Button></NavLink>
+               <NavLink style={{textDecoration:'none'}} to={`${user.principal.user.id}`}>  <Button>Edit Your user</Button></NavLink>
 
                 <hr></hr>
                 <Tdata header={headerdata} data={filteredusers} loading={Loading} type={'user'} handle={setdelete}></Tdata>
