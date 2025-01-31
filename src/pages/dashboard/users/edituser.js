@@ -37,14 +37,14 @@ async function edit(){
 setloading(true);
     try {
         await
-        Axios.post('user/update',{
+        Axios.post('/user/update',{
             id:id,
             username:name,
             email:email,
             authorities:[{authority:role}]
         });
 
-     
+       window.location.pathname='/dashboard/users'
 
     } catch (error) {
         console.log(error);
