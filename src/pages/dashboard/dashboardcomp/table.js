@@ -40,7 +40,7 @@ const datashow = data.map((item,key)=>{  return( <TableRow
                 {key+1}
               </TableCell>
               {header.map((item2,key2)=>
-{ return    <TableCell key={key2} >{item[item2.id]} </TableCell>  }
+{ return    item2.id==='authority'?<TableCell key={key2} >USER</TableCell>: <TableCell key={key2} >{item[item2.id] } </TableCell> }
 
 )}
               <TableCell style={{display:'flex',gap:'8px'}}><NavLink to={`/editor/db/${item.id}`}>
