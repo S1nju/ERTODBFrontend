@@ -7,7 +7,6 @@ import './users.css'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Axios } from "../../../api/axios";
-import { useParams } from "react-router-dom";
 
 
 
@@ -20,7 +19,8 @@ const[disable,setdiable]=useState(true);
 const [role,setrole]=useState('');
 const[loading,setloading]=useState(false);
 const[loading2,setloading2]=useState(false);
-const {id} =useParams();
+let number =  window.location.pathname.split('/');
+let id = number[number.length - 1];
 useState(()=>{
 setloading2(true);
     Axios.get('user/user?id='+id).then(data=>{
@@ -37,7 +37,7 @@ async function edit(){
 setloading(true);
     try {
         await
-        Axios.post('user/update/',{
+        Axios.post('user/update',{
             id:id,
             username:name,
             email:email,
