@@ -37,7 +37,7 @@ async function edit(){
 setloading(true);
     try {
         await
-        Axios.post('/user/update',{
+        Axios.put('/user/update',{
             id:id,
             username:name,
             email:email,
