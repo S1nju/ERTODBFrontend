@@ -23,11 +23,11 @@ const[loading2,setloading2]=useState(false);
 const {id} =useParams();
 useState(()=>{
 setloading2(true);
-    Axios.get('/user/'+id).then(data=>{
+    Axios.get('user/user?id='+id).then(data=>{
 
-        setname(data.data.name)
+        setname(data.data.username)
         setemail(data.data.email)
-        setrole(data.data.role)
+        setrole(data.data.authorities[0].authority)
     }).then(()=>{setdiable(false);setloading2(false)}).catch(e=>{
         window.location.replace('/notfound')
     })
@@ -37,10 +37,11 @@ async function edit(){
 setloading(true);
     try {
         await
-        Axios.post('/user/edit/'+id,{
-            name:name,
+        Axios.post('user/update/',{
+            id:id,
+            username:name,
             email:email,
-            role:role
+            authorities:[{authority:role}]
         });
 
        window.location.pathname='/dashboard/users'
@@ -83,10 +84,9 @@ return(
         <Form.Control type="email" placeholder="name@example.com"  name="password"  value={email} onChange={e=>setemail(e.target.value)} required minLength='8'/>
       </Form.Group>
       <Form.Select  onChange={(e)=>setrole(e.target.value)}  value={role} aria-label="Default select example" className="mb-5">
-   {disable? <option  style={{fontWeight:'500'}}>Select Role</option> : <> <option value='1995'>Admin</option>
-      <option value='2001'>User</option>
-      <option value='1996'>Writer</option>
-      <option value='1999'>Product Manager</option>
+   {disable? <option  style={{fontWeight:'500'}}>Select Role</option> : <>
+      <option value='USER'>User</option>
+      <option value='ADMIN'>ADMIN</option>
       </>}
 
     </Form.Select>
