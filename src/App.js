@@ -74,7 +74,7 @@ function App() {
 
 <Route path="users" element={
 <Users></Users>}></Route>
-<Route path="users/:id" element={
+<Route path="user/:id" element={
 <Edituser></Edituser>}></Route>
 <Route path="user" element={
 <Adduser></Adduser>}></Route></Route>

@@ -21,14 +21,13 @@ const[loading,setloading]=useState(false);
 const[loading2,setloading2]=useState(false);
 let number =  window.location.pathname.split('/');
 let id = number[number.length - 1];
-console.log(id)
+
 useState(()=>{
 setloading2(true);
     Axios.get('/user/user?id='+id).then(data=>{
         setname(data.data.username)
         setemail(data.data.email)
         setrole(data.data.authorities[0].authority)
-        console.log(data)
     }).then(()=>{setdiable(false);setloading2(false)}).catch(e=>{
         window.location.replace('/notfound')
     })
