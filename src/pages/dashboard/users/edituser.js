@@ -44,7 +44,7 @@ setloading(true);
             authorities:[{authority:role}]
         });
 
-       window.location.pathname='/dashboard/users'
+     
 
     } catch (error) {
         console.log(error);
