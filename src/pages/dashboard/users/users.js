@@ -1,6 +1,5 @@
 
 import {  useEffect, useState } from "react"
-import {users } from "../../../api/api"
 
 
 import './users.css'
@@ -21,9 +20,9 @@ export default function Users(){
 
      setloading(true);
     async function fetchdata() {
-      Axios.get('/user').then(data=>setuser(data.data)).catch(err=>console.log(err)).then(()=>{
+      Axios.get('/auth/user').then(data=>setuser(data.data)).catch(err=>console.log(err)).then(()=>{
 
-        Axios.get('/'+users).then(data=>setusers(data.data)).then(()=>setloading(false)).catch(err=>console.log(err))
+        Axios.get("/user/users").then(data=>setusers(data.data)).then(()=>setloading(false)).catch(err=>console.log(err))
       })
      }
      fetchdata();
