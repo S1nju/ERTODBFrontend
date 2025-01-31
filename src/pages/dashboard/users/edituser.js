@@ -23,8 +23,7 @@ let number =  window.location.pathname.split('/');
 let id = number[number.length - 1];
 useState(()=>{
 setloading2(true);
-    Axios.get('user/user?id='+id).then(data=>{
-
+    Axios.get('/user/user?id='+id).then(data=>{
         setname(data.data.username)
         setemail(data.data.email)
         setrole(data.data.authorities[0].authority)
