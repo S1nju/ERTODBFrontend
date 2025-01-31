@@ -8,6 +8,7 @@ import { NavLink } from "react-router-dom";
 import { Axios } from "../../../api/axios";
 import Image from 'react-bootstrap/Image';
 import Tdata from "../dashboardcomp/table";
+import { Avatar } from "@mui/material";
 
 export default function Users(){
     const [users1,setusers]=useState([]);
@@ -27,17 +28,16 @@ export default function Users(){
      }
      fetchdata();
     },[delete2])
-
     const filteredusers = users1.filter(el=>el.id!==user.id)
 const headerdata= [
 
-  {  id:'name',
+  {  id:'username',
     name:'Name'
   },
   { id:'email',
     name:'Email'
   },
-  {id:'role',
+  {id:'authorities',
     name:'Role'
   }
 ]; return (
@@ -52,7 +52,7 @@ const headerdata= [
                  marginBottom:'30px'
                }} >  Welcome Admin</h1>
                <div style={{display:'flex',gap:'15px'}}>
-                <Image  style={{height:'71px',width:'70px'}}  src={require('./favicon.ico')} roundedCircle /> <div><h4>{Loading?'loading..':user.name}</h4><p style={{color:'gray'}}>You can add , edit and delete users here</p></div></div></div>
+               <Avatar alt={user.name} src="/static/images/avatar/2.jpg" style={{height:'71px',width:'71px'}} /><div><h4>{Loading?'loading..':user.name}</h4><p style={{color:'gray'}}>You can add , edit and delete users here</p></div></div></div>
 
 
                <div>
