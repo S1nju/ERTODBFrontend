@@ -6,7 +6,6 @@ import './users.css'
 import Button from 'react-bootstrap/Button';
 import { NavLink } from "react-router-dom";
 import { Axios } from "../../../api/axios";
-import Image from 'react-bootstrap/Image';
 import Tdata from "../dashboardcomp/table";
 import { Avatar } from "@mui/material";
 
@@ -37,7 +36,7 @@ const headerdata= [
   { id:'email',
     name:'Email'
   },
-  {id:'authorities',
+  {id:'authority',
     name:'Role'
   }
 ]; return (
