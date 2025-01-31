@@ -27,7 +27,9 @@ export default function Users(){
      }
      fetchdata();
     },[delete2])
-    const filteredusers = users1.filter(el=>el.id!==user.id)
+const filteredusers = users1.filter(user => 
+      user.authorities.some(auth => auth.authority === "USER")
+  );
 const headerdata= [
 
   {  id:'username',
