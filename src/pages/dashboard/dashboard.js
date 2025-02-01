@@ -66,17 +66,17 @@ export default function Dashboard(){
                       title: 'Admin Panel',
                     },
                     {
-                      segment: '',
+                      segment: 'dashboard',
                       title: 'Users',
                       icon: <BarChartIcon />,
                       children: [
                         {
-                          segment: 'dashboard/user',
+                          segment: 'user',
                           title: 'add User',
                           icon: <DescriptionIcon />,
                         },
                         {
-                          segment: 'dashboard/users',
+                          segment: 'users',
                           title: 'Users',
                           icon: <DescriptionIcon />,
                         },
