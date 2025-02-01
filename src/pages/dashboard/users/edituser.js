@@ -7,6 +7,7 @@ import './users.css'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Axios } from "../../../api/axios";
+import { user } from "../../../api/api";
 
 
 
@@ -41,6 +42,7 @@ setloading(true);
             id:id,
             username:name,
             email:email,
+            password:user.password,
             authorities:[{authority:role}]
         });
 
