@@ -126,6 +126,7 @@ export default function Dashboard(){
             homeUrl: '/',
           }}
         theme={demoTheme}
+        className="dparent"
        
       >
         <DashboardLayout>
