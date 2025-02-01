@@ -13,8 +13,8 @@ import Adduser from "./pages/dashboard/users/adduser";
 import Err403 from "./pages/website/auth/403";
 import Err404 from "./pages/website/auth/404";
 import Logincallback from "./pages/website/auth/logincallback";
-import Databases from "./pages/dashboard/product/Databases";
-import AddDB from "./pages/dashboard/product/addDB";
+import Databases from "./pages/dashboard/Databases/Databases";
+import AddDB from "./pages/dashboard/Databases/addDB";
 import Landing from "./pages/website/main pages/Landing";
 import { Axios } from "./api/axios";
 import Cookie from 'cookie-universal'

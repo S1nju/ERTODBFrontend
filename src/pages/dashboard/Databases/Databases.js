@@ -9,7 +9,7 @@ import { Axios } from "../../../api/axios";
 import Tdata from "../dashboardcomp/table";
 import { Avatar } from "@mui/material";
 
-export default function Products(){
+export default function Databases(){
     const [Products,setProduct]=useState([]);
     const [user,setuser]=useState('');
     const [Loading,setloading]=useState(false);
