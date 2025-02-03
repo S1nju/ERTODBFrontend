@@ -7,7 +7,6 @@ import './users.css'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Axios } from "../../../api/axios";
-import { user } from "../../../api/api";
 
 
 
@@ -16,6 +15,7 @@ export default  function Edituser(){
 
 const[name,setname]=useState('');
 const[email,setemail]=useState('');
+const[password,setpassword]=useState('');
 const[disable,setdiable]=useState(true);
 const [role,setrole]=useState('');
 const[loading,setloading]=useState(false);
@@ -28,7 +28,9 @@ setloading2(true);
     Axios.get('/user/user?id='+id).then(data=>{
         setname(data.data.username)
         setemail(data.data.email)
+        setpassword(data.data.password)
         setrole(data.data.authorities[0].authority)
+        console.log(role)
     }).then(()=>{setdiable(false);setloading2(false)}).catch(e=>{
         window.location.replace('/notfound')
     })
@@ -42,7 +44,7 @@ setloading(true);
             id:id,
             username:name,
             email:email,
-            password:user.password,
+            password:password,
             authorities:[{authority:role}]
         });
 

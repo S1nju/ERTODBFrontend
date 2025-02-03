@@ -121,8 +121,7 @@ export default function Dashboard(){
           ],
         },
       ]}
-      width={400}
-      height={200}
+
     />
 
 
@@ -137,8 +136,7 @@ export default function Dashboard(){
           data: [2, 5.5, 2, 8.5, 1.5, 5],
         },
       ]}
-      width={500}
-      height={300}
+    
     />
 
 </SpotlightCard>
