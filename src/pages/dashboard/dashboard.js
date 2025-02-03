@@ -16,6 +16,7 @@ import { Avatar, Button, Card, CardContent, Typography,CardActions } from "@mui/
 
 import { BarChart } from '@mui/x-charts/BarChart';
 import SpotlightCard from "../../blocks/Components/SpotlightCard/SpotlightCard";
+import { LineChart, PieChart } from "@mui/x-charts";
 
 
 export default function Dashboard(){
@@ -101,6 +102,47 @@ export default function Dashboard(){
     />
              
 </SpotlightCard>
+<div style={{
+  display:"flex",
+  gap:"15px",
+  justifyContent:"center",
+  alignItems:"center"
+}}>
+<SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(83, 83, 83, 0.4)" >
+
+
+<PieChart
+      series={[
+        {
+          data: [
+            { id: 0, value: 10, label: 'series A' },
+            { id: 1, value: 15, label: 'series B' },
+            { id: 2, value: 20, label: 'series C' },
+          ],
+        },
+      ]}
+      width={400}
+      height={200}
+    />
+
+
+</SpotlightCard>
+<SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(83, 83, 83, 0.4)" >
+
+
+<LineChart
+      xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+      series={[
+        {
+          data: [2, 5.5, 2, 8.5, 1.5, 5],
+        },
+      ]}
+      width={500}
+      height={300}
+    />
+
+</SpotlightCard>
+</div>
                           
                   </div>)
                   
@@ -156,12 +198,13 @@ export default function Dashboard(){
         <DashboardLayout>
             { window.location.pathname==="/dashboard"?
        <div style={{display:"flex",gap:'15px',flexFlow:"column wrap"}}> 
+       {graph}
        <div style={{display:"flex",padding:"30px"}}>
        <div>
        <SplitText
        text={"Hello, Welcome Back "+u.name}
        className="text-2xl font-semibold"
-       delay={150}
+       delay={50}
        animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
        animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
        easing="easeOutCubic"
@@ -171,9 +214,7 @@ export default function Dashboard(){
        /><div style={{display:"flex", gap:"30px",marginTop:"30px",flexFlow:"row wrap",width:"100%"}}>
          <Avatar alt={u.name} src="/static/images/avatar/2.jpg" style={{height:'71px',width:'71px'}} />
                 
-                <div style={{width:"50%"}} ><h4>{u.name}</h4>
-                <p style={{color:"grey"}}>
-                Welcome to ERTODB this is your dashboard start exploring the platform by creating your first ER Diagram</p>
+                <div><h4>{u.name}</h4><span>this is your dashboard</span>
                   </div>
                   <Card variant="outlined" sx={{width:"auto"}}> <React.Fragment>
     <CardContent>
@@ -198,7 +239,7 @@ export default function Dashboard(){
        </div>
        
       
-       {graph}</div>
+       </div>
        :<Outlet></Outlet>}
         
         </DashboardLayout>
