@@ -85,7 +85,7 @@ export default function Dashboard(){
                       ],
                     }]);
                   
-                  setgraphs(<div style={{padding:"30px",display:"flex",flexFlow:"colmn wrap",gap:'15px'}}>
+                  setgraphs(<div style={{padding:"30px",display:"flex",flexFlow:"colmn wrap",gap:'15px',width:"100%"}}>
                   <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(83, 83, 83, 0.4)" >
 
 
@@ -124,6 +124,7 @@ export default function Dashboard(){
         },
       ]}
       height={200}
+      width={300}
 
     />
 
@@ -186,7 +187,7 @@ export default function Dashboard(){
             { window.location.pathname==="/dashboard"?
        <div style={{display:"flex",gap:'15px',flexFlow:"column wrap"}}> 
       
-       <div style={{display:"flex",padding:"30px"}}>
+       <div style={{display:"flex",padding:"30px",width:"100%"}}>
        <div>
        <SplitText
        text={"Hello, Welcome Back "+u.name}
@@ -213,7 +214,7 @@ export default function Dashboard(){
       </Typography>
     </CardContent>
     <CardActions>
-     <NavLink to="/dashboard/dbs"> <Button size="small" variant="contained">Create More</Button></NavLink>
+     <NavLink to="dbs"> <Button size="small" variant="contained">Create More</Button></NavLink>
     </CardActions>
   </React.Fragment></Card>
                   
