@@ -4,6 +4,7 @@ import Redirect from "./pages/website/auth/googlecallback";
 import Register from "./pages/website/auth/register";
 import Home from "./pages/website/main pages/Home";
 import './assets/all.min.css'
+import { useContext } from "react";
 import Users from "./pages/dashboard/users/users";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dashboard from "./pages/dashboard/dashboard";
@@ -18,12 +19,26 @@ import AddDB from "./pages/dashboard/Databases/addDB";
 import Landing from "./pages/website/main pages/Landing";
 import { Axios } from "./api/axios";
 import Cookie from 'cookie-universal'
+import { menu } from "./contex/hamburger";
 
 
 
 
 
 function App() {
+  let {darklight,setdark} = useContext(menu);
+  const lightTheme = createTheme({
+    palette: {
+      mode: 'light',
+    },
+  });
+
+  // Define the dark theme
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  });
    const cookie = Cookie()
   Axios.interceptors.response.use(
   (response) => response,
@@ -37,6 +52,9 @@ function App() {
   }
 );
   return (
+    <ThemeProvider theme={darklight ? darkTheme : lightTheme}>
+    {/* CssBaseline ensures consistent baseline styles across browsers */}
+    <CssBaseline />
     <div className="App" style={{ height: '100%' , width:"100%" }}>
 
 <Routes>
@@ -85,7 +103,7 @@ function App() {
 </Route></Route>
 
 </Routes>
-    </div>
+    </div></ThemeProvider>
   );
 }
 

@@ -1,4 +1,4 @@
-import {  useEffect, useState } from "react";
+import {  useContext, useEffect, useState } from "react";
 
 import {logout } from "../../../api/api"
 
@@ -18,13 +18,17 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import StorageIcon from '@mui/icons-material/Storage'; 
 import {  NavLink } from "react-router-dom";
+import { menu } from "../../../contex/hamburger";
 
 export default function TTopbar(d) {
   const pages = ['Homepage', 'About', 'Contact'];
- 
+ let {darklight,setdark} = useContext(menu);
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
-  
+  let handlechange=()=>{
+    setdark(prev=>!prev)
+
+  }
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -170,6 +174,10 @@ async function hlogout(){
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
+          <IconButton color="inherit" onClick={toggleDarkMode}>
+          {/* Optional: Add an icon like a sun/moon */}
+          {isDarkMode ? '🌙' : '🌞'}
+        </IconButton>
           {user!==''? <div>
             <Tooltip title="Open settings">
               
