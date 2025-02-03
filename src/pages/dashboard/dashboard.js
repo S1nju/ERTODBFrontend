@@ -155,7 +155,7 @@ export default function Dashboard(){
       >
         <DashboardLayout>
             { window.location.pathname==="/dashboard"?
-       
+       <div style={{display:"flex",gap:'15px',flexFlow:"column wrap"}}> 
        <div style={{display:"flex",padding:"30px"}}>
        <div>
        <SplitText
@@ -193,12 +193,12 @@ export default function Dashboard(){
                   <hr></hr>
                 
        </div>
-       {graph}
+    
        
        </div>
        
-       
-       
+      
+       {graph}</div>
        :<Outlet></Outlet>}
         
         </DashboardLayout>
