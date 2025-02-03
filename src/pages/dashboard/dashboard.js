@@ -101,7 +101,7 @@ export default function Dashboard(){
       margin={{ top: 10, bottom: 30, left: 40, right: 10 }}
     />
     <br></br>
-    <h6>total users in session to the number of dbs created</h6>
+    <h6 style={{textAlign:"center"}}>total users in session to the number of dbs created</h6>
              
 </SpotlightCard>
 <div style={{
@@ -123,7 +123,6 @@ export default function Dashboard(){
           ],
         },
       ]}
-      width={350} height={200}
 
     />
 
