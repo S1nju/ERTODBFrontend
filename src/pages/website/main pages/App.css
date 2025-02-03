@@ -6,6 +6,9 @@
  flex-direction: column;
 
 }
+.custom-spotlight-card{
+  background-color: royalblue;
+}
 .table{
   background-color: transparent;
 }

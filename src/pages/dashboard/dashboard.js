@@ -84,7 +84,7 @@ export default function Dashboard(){
                       ],
                     }]);
                   
-                  setgraphs(<>
+                  setgraphs(<div style={{padding:"30px"}}>
                   <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(83, 83, 83, 0.4)" >
 
 
@@ -102,7 +102,7 @@ export default function Dashboard(){
              
 </SpotlightCard>
                           
-                  </>)
+                  </div>)
                   
                   }
             
