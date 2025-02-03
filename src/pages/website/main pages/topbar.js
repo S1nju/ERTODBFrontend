@@ -175,7 +175,7 @@ async function hlogout(){
           </Box>
           <Box sx={{ flexGrow: 0 }}>
           <IconButton color="inherit" onClick={handlechange}>
-          {isDarkMode ? '🌙' : '🌞'}
+          {darklight ? '🌙' : '🌞'}
         </IconButton>
           {user!==''? <div>
             <Tooltip title="Open settings">
