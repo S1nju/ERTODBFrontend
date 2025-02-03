@@ -85,7 +85,7 @@ export default function Dashboard(){
                       ],
                     }]);
                   
-                  setgraphs(<div style={{padding:"30px",display:"flex",flexFlow:"colmn wrap",gap:'15px',width:"100%"}}>
+                  setgraphs(<div style={{padding:"30px",display:"flex",flexFlow:"column wrap",gap:'15px',width:"100%"}}>
                   <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(83, 83, 83, 0.4)" width="100%">
 
 
@@ -123,7 +123,7 @@ export default function Dashboard(){
           ],
         },
       ]}
-      width={window.innerWidth} height={window.innerHeight}
+      width={350} height={200}
 
     />
 
