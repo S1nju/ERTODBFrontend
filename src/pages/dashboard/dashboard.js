@@ -85,7 +85,7 @@ export default function Dashboard(){
                       ],
                     }]);
                   
-                  setgraphs(<div style={{padding:"30px",display:"flex",flexFlow:"column wrap",gap:'15px',width:"100%"}}>
+                  setgraphs(<div style={{padding:"15px",display:"flex",flexFlow:"column wrap",gap:'15px',width:"100%"}}>
                   <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(83, 83, 83, 0.4)" width="100%">
 
 
@@ -183,7 +183,7 @@ export default function Dashboard(){
       >
         <DashboardLayout>
             { window.location.pathname==="/dashboard"?
-       <div style={{display:"flex",gap:'15px',flexFlow:"column wrap"}}> 
+       <div style={{display:"flex",flexFlow:"column wrap"}}> 
       
        <div style={{display:"flex",padding:"30px",width:"100%"}}>
        <div>
@@ -217,7 +217,7 @@ export default function Dashboard(){
   </React.Fragment></Card>
                   
                    </div>
-                  <hr></hr>
+                  <hr style={{width:"100%"}}></hr>
                 
        </div>
     
