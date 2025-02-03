@@ -86,7 +86,7 @@ export default function Dashboard(){
                     }]);
                   
                   setgraphs(<div style={{padding:"30px",display:"flex",flexFlow:"colmn wrap",gap:'15px',width:"100%"}}>
-                  <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(83, 83, 83, 0.4)" >
+                  <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(83, 83, 83, 0.4)" width="100%">
 
 
                   <BarChart
@@ -110,7 +110,7 @@ export default function Dashboard(){
   justifyContent:"center",
   alignItems:"center"
 }}>
-<SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(83, 83, 83, 0.4)" >
+<SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(83, 83, 83, 0.4)" width="100%" >
 
 
 <PieChart
@@ -123,8 +123,7 @@ export default function Dashboard(){
           ],
         },
       ]}
-      height={200}
-      width={300}
+      width={window.innerWidth} height={window.innerHeight}
 
     />
 
