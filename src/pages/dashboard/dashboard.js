@@ -85,7 +85,7 @@ export default function Dashboard(){
                       ],
                     }]);
                   
-                  setgraphs(<div style={{padding:"30px"}}>
+                  setgraphs(<div style={{padding:"30px",display:"flex",flexFlow:"colmn wrap",gap:'15px'}}>
                   <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(83, 83, 83, 0.4)" >
 
 
@@ -100,6 +100,8 @@ export default function Dashboard(){
       xAxis={[{ data: ['Q1', 'Q2', 'Q3', 'Q4'], scaleType: 'band' }]}
       margin={{ top: 10, bottom: 30, left: 40, right: 10 }}
     />
+    <br></br>
+    <h6>total users in session to the number of dbs created</h6>
              
 </SpotlightCard>
 <div style={{
@@ -121,6 +123,7 @@ export default function Dashboard(){
           ],
         },
       ]}
+      height={200}
 
     />
 
