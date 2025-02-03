@@ -183,7 +183,7 @@ export default function Dashboard(){
       >
         <DashboardLayout>
             { window.location.pathname==="/dashboard"?
-       <div style={{display:"flex",gap:'12px',flexFlow:"column wrap"}}> 
+       <div style={{display:"flex",flexFlow:"column wrap"}}> 
       
        <div style={{display:"flex",padding:"30px",width:"100%"}}>
        <div>
