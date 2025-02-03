@@ -16,7 +16,7 @@ import { Avatar, Button, Card, CardContent, Typography,CardActions } from "@mui/
 
 import { BarChart } from '@mui/x-charts/BarChart';
 import SpotlightCard from "../../blocks/Components/SpotlightCard/SpotlightCard";
-import { LineChart, PieChart } from "@mui/x-charts";
+import {  PieChart } from "@mui/x-charts";
 
 
 export default function Dashboard(){
