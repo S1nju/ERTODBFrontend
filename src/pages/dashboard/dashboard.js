@@ -126,20 +126,6 @@ export default function Dashboard(){
 
 
 </SpotlightCard>
-<SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(83, 83, 83, 0.4)" >
-
-
-<LineChart
-      xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-      series={[
-        {
-          data: [2, 5.5, 2, 8.5, 1.5, 5],
-        },
-      ]}
-    
-    />
-
-</SpotlightCard>
 </div>
                           
                   </div>)
@@ -196,7 +182,7 @@ export default function Dashboard(){
         <DashboardLayout>
             { window.location.pathname==="/dashboard"?
        <div style={{display:"flex",gap:'15px',flexFlow:"column wrap"}}> 
-       {graph}
+      
        <div style={{display:"flex",padding:"30px"}}>
        <div>
        <SplitText
@@ -236,7 +222,7 @@ export default function Dashboard(){
        
        </div>
        
-      
+       {graph}
        </div>
        :<Outlet></Outlet>}
         
