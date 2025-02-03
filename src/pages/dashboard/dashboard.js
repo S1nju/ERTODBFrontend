@@ -14,11 +14,13 @@ import SplitText from '../../blocks/TextAnimations/SplitText/SplitText'
 import StorageIcon from '@mui/icons-material/Storage'; 
 import { Avatar, Button, Card, CardContent, Typography,CardActions } from "@mui/material";
 
-
+import { BarChart } from '@mui/x-charts/BarChart';
+import SpotlightCard from "../../blocks/Components/SpotlightCard/SpotlightCard";
 
 
 export default function Dashboard(){
     const [u,setu]=useState("");
+    const [graph,setgraphs]=useState("");
       const  [NAVIGATION,setNav] = useState([
         {
           kind: 'header',
@@ -80,7 +82,29 @@ export default function Dashboard(){
                           icon: <DescriptionIcon />,
                         },
                       ],
-                    }]);  }
+                    }]);
+                  
+                  setgraphs(<>
+                  <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(83, 83, 83, 0.4)" >
+
+
+                  <BarChart
+      series={[
+        { data: [35, 44, 24, 34] },
+        { data: [51, 6, 49, 30] },
+        { data: [15, 25, 30, 50] },
+        { data: [60, 50, 15, 25] },
+      ]}
+      height={290}
+      xAxis={[{ data: ['Q1', 'Q2', 'Q3', 'Q4'], scaleType: 'band' }]}
+      margin={{ top: 10, bottom: 30, left: 40, right: 10 }}
+    />
+             
+</SpotlightCard>
+                          
+                  </>)
+                  
+                  }
             
              })
 
@@ -169,6 +193,7 @@ export default function Dashboard(){
                   <hr></hr>
                 
        </div>
+       {graph}
        
        </div>
        
