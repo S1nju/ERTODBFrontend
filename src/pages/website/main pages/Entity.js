@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import {  Handle,Position } from '@xyflow/react'
 import './App.css'
 import { menu } from '../../../contex/hamburger'
+import VpnKeyIcon from '@mui/icons-material/VpnKey';
 
 let colors=["#007BFF","#28A745","#FD7E14","#6F42C1"]
     
@@ -18,13 +19,15 @@ export default function Entity({data}) {
 
 <div className='tablecontent' style={{backgroundColor:darklight?'#272727':'#fff'}}>
     
-    <Handle className='handle' type="source" position={Position.Left}> </Handle><p style={{color:"black"}}>{data.pkey.name}
-        </p><p style={{opacity:0.8, color:darklight?"white":"black"}}>{data.pkey.type}   (pkey)</p>
+    <Handle className='handle' type="source" position={Position.Left}> </Handle><p style={{color:darklight?"white":"black"}}>{data.pkey.name}
+        </p><p style={{opacity:0.8, color:darklight?"white":"black"}}>{data.pkey.type}   <VpnKeyIcon /></p>
     <Handle type="target" position={Position.Right}></Handle></div>
 
 <hr style={{margin:0}}></hr>
 {data.attribuetes.map((item,index)=>{
-return <div key={index}><div  className='tablecontent' style={{backgroundColor:darklight?'#272727':'#fff'}}><p>{item.name}</p><p style={{opacity:0.8}}>{item.type}</p></div>
+return <div key={index}><div  className='tablecontent' style={{backgroundColor:darklight?'#272727':'#fff'}}>
+  
+  <p style={{backgroundColor:"transparent"}} >{item.name}</p><p style={{opacity:0.8,backgroundColor:"transparent"}}>{item.type}</p></div>
 <hr style={{margin:0}}></hr></div>
 })
 
