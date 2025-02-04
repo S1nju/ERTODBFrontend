@@ -28,7 +28,7 @@ import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 
 function App() {
   let {darklight,setdark} = useContext(menu);
-  setdark(false);
+
   const lightTheme = createTheme({
     palette: {
       mode: 'light',
