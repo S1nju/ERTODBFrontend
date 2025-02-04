@@ -467,12 +467,9 @@ setopen(true)
         aria-labelledby="responsive-dialog-title"
       >
         <DialogTitle id="responsive-dialog-title">
-          {"Use Google's location service?"}
+          {"Choose multiplicity for the edge"}
         </DialogTitle>
         <DialogContent>
-          <DialogContentText>
-           Choose multiplicity for the edge
-          </DialogContentText>
           <FormControl  fullWidth>
         <InputLabel id="demo-simple-select-label">Type</InputLabel>
         <Select
