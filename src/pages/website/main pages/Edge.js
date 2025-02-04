@@ -17,22 +17,22 @@ export default function Edge({ id, sourceX, sourceY, targetX, targetY,index}) {
   return (
     <>
       <BaseEdge id={id} path={edgePath} />
-      <EdgeLabelRenderer>
-     <span>{type[index]}</span>
-        <Button
-     color="error" size="small"
-             style={{
+      <EdgeLabelRenderer><div  style={{
                 position: 'absolute',
                 transform: `translate(-50%, -50%) translate(${labelX}px, ${labelY}px)`,
                 pointerEvents: 'all',
-              }}
+              }}>
+     <span>{type[index]}</span>
+        <Button
+     color="error" size="small"
+            
              
               className="nodrag nopan"
            
           onClick={() => setEdges((edges) => edges.filter((e) => e.id !== id))}
         >
           <CloseIcon></CloseIcon>
-        </Button>
+        </Button></div>
       </EdgeLabelRenderer>
     </>
   );
