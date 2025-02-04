@@ -3,29 +3,29 @@ import { BaseEdge,getSmoothStepPath,
     EdgeLabelRenderer,
     useReactFlow, } from '@xyflow/react';
     import CloseIcon from '@mui/icons-material/Close';
+import { useState } from 'react';
  
-export default function Edge({ id, sourceX, sourceY, targetX, targetY }) {
+export default function Edge({ id, sourceX, sourceY, targetX, targetY,index=0}) {
   const [edgePath,labelX, labelY] = getSmoothStepPath({
     sourceX,
     sourceY,
     targetX,
     targetY,
   });
-  
+  const [type,settype]=useState(['1:n','n:1','1:1','n:n'])
   const { setEdges } = useReactFlow();
 
   return (
     <>
       <BaseEdge id={id} path={edgePath} />
       <EdgeLabelRenderer>
+     {type[index]}
         <Button
      color="error" size="small"
              style={{
                 position: 'absolute',
                 transform: `translate(-50%, -50%) translate(${labelX}px, ${labelY}px)`,
                 pointerEvents: 'all',
-                // Custom padding for smaller button
-               
               }}
              
               className="nodrag nopan"

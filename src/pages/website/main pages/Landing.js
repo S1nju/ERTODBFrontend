@@ -118,8 +118,8 @@ export default function Landing() {
     pauseOnHover={true}
     size='clamp(8rem, 1rem + 20vmin, 25rem)'
     duration='60s'
-    bgColor={darklight?'#111111':'#fff'}
-    bgAccentColor={darklight?'#111111':'#fff'}
+    bgColor={darklight?'#121212':'#fff'}
+    bgAccentColor={darklight?'#121212':'#fff'}
   />  
 </div>
 <Wave fill={darklight?'rgb(129 159 183)':'royalblue'}
