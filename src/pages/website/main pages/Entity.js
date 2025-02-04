@@ -16,10 +16,10 @@ export default function Entity({data}) {
         <div className='tabletitle' style={{backgroundColor:darklight?'#3C3D37':colors[x]}}><p>{data.title}</p></div>
         
 
-<div className='tablecontent'>
+<div className='tablecontent' style={{backgroundColor:darklight?'#272727':'#fff'}}>
     
     <Handle className='handle' type="source" position={Position.Left}> </Handle><p style={{color:"black"}}>{data.pkey.name}
-        </p><p style={{opacity:0.8, color:"black"}}>{data.pkey.type}   (pkey)</p>
+        </p><p style={{opacity:0.8, color:darklight?"white":"black"}}>{data.pkey.type}   (pkey)</p>
     <Handle type="target" position={Position.Right}></Handle></div>
 
 <hr style={{margin:0}}></hr>
