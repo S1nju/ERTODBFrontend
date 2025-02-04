@@ -40,7 +40,19 @@ export default function Reactflow() {
   let initialEdges = [];
   const [nodes, setNodes] = useState(initialNodes); 
   const [edges, setEdges] = useState(initialEdges);
+  const [edgesval, setEdgesval] = useState(0);
   const [isopen, setopen] = useState(false);
+  const [open2, setOpen2] = React.useState(false);
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
+
+  const handleClickOpen = () => {
+    setOpen2(true);
+  };
+
+  const handleClose = () => {
+    setOpen2(false);
+  };
   useEffect(()=>{
     const s = async (params) => {
       try {
@@ -404,6 +416,10 @@ setopen(true)
  })
 
   }
+
+  let handleChange22=(e)=>{
+    setEdgesval(e.target.value)
+  }
   return (
     <div className='content' style={{ height: '100vh' }}>
 
@@ -419,6 +435,7 @@ setopen(true)
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         onNodeClick={handlenodeupdate}
+        onEdgeClick={handleClickOpen}
         nodeTypes={nodetype}
         edgeTypes={edgeTypes}
     fitView
@@ -443,6 +460,46 @@ setopen(true)
         <Controls />
       
       </ReactFlow>
+      <Dialog
+        fullScreen={fullScreen}
+        open={open2}
+        onClose={handleClose}
+        aria-labelledby="responsive-dialog-title"
+      >
+        <DialogTitle id="responsive-dialog-title">
+          {"Use Google's location service?"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+           Choose multiplicity for the edge
+          </DialogContentText>
+          <FormControl  fullWidth>
+        <InputLabel id="demo-simple-select-label">Type</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={edgesval}
+          label="Type"
+          name='type'
+          onChange={handleChange22}
+          size='small'
+        >
+          <MenuItem value={0}>1:n</MenuItem>
+          <MenuItem value={1}>n:1</MenuItem>
+          <MenuItem value={2}>1:1</MenuItem>
+          <MenuItem value={3}>n:n</MenuItem>
+        </Select>
+      </FormControl>
+        </DialogContent>
+        <DialogActions>
+          <Button autoFocus onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button onClick={handleClose} autoFocus>
+            Save
+          </Button>
+        </DialogActions>
+      </Dialog>
       <Drawer open={navopen} 
          sx={{
           width: 300,          // Set fixed width here
