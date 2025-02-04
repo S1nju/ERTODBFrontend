@@ -12,7 +12,7 @@ export default function Edge({ id, sourceX, sourceY, targetX, targetY,index}) {
     targetX,
     targetY,
   });
-  type=['1:n','n:1','1:1','n:n']
+ let  type=['1:n','n:1','1:1','n:n'];
   const { setEdges } = useReactFlow();
   return (
     <>
@@ -22,7 +22,7 @@ export default function Edge({ id, sourceX, sourceY, targetX, targetY,index}) {
                 transform: `translate(-50%, -50%) translate(${labelX}px, ${labelY}px)`,
                 pointerEvents: 'all',
               }}>
-     <span>{type[index]}</span>
+     <span>{type[0]}</span>
         <Button
      color="error" size="small"
             
