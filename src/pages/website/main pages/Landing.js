@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import './App.css'
 import TTopbar from './topbar'
 import { Button, Typography } from '@mui/material'
@@ -9,7 +9,9 @@ import LogoWall from '../../../blocks/Components/LogoWall/LogoWall';
 
 import SpotlightCard from '../../../blocks/Components/SpotlightCard/SpotlightCard'
 import { NavLink } from 'react-router-dom'
+import { menu } from '../../../contex/hamburger'
 export default function Landing() {
+  let {darklight,setdark}=useContext(menu);
   const logoImgs = [
     { imgUrl: require('./1567361.png'), altText: "ERTODB" },
     { imgUrl: require('./6742694.png'), altText: "ERTODB" },
@@ -96,7 +98,7 @@ export default function Landing() {
     justifyContent:"center",
    }}>
     <Typography  variant="h2" component="h2" sx={{width:"90%"}}>
- Welcome to your <Typography variant="h2" component="h2" sx={{color: "royalblue",}}>
+ Welcome to your <Typography variant="h2" component="h2" sx={{color: darklight?'#90caf9':'royalblue',}}>
  ER To database application
 </Typography>
 </Typography>
@@ -116,11 +118,11 @@ export default function Landing() {
     pauseOnHover={true}
     size='clamp(8rem, 1rem + 20vmin, 25rem)'
     duration='60s'
-    bgColor='#fff'
-    bgAccentColor='#fff'
+    bgColor={darklight?'#111111':'#fff'}
+    bgAccentColor={darklight?'#111111':'#fff'}
   />  
 </div>
-<Wave fill='royalblue'
+<Wave fill={darklight?'rgb(129 159 183)':'royalblue'}
         paused={false}
         style={{ display: 'flex'}}
         options={{
@@ -132,11 +134,11 @@ export default function Landing() {
         
   />
   
-  <div style={{backgroundColor:"royalblue",padding:"50px",width:"100%",display:"flex",flexFlow:"row wrap",gap:"50px",alignContent:"center",justifyContent:"center"}}>
+  <div style={{backgroundColor:darklight?'rgb(129 159 183)':'royalblue',padding:"50px",width:"100%",display:"flex",flexFlow:"row wrap",gap:"50px",alignContent:"center",justifyContent:"center"}}>
   
  
   <Typography 
-    style={{  width:"100%",fontWeight:"500",color:"white",display:"flex",flexDirection:"column",alignItems:"center"}}>
+    style={{  width:"100%",fontWeight:"500",color:"black",display:"flex",flexDirection:"column",alignItems:"center"}}>
           <TextPressure
     text="Why ER to DB"
     flex={true}
@@ -145,7 +147,7 @@ export default function Landing() {
     width={true}
     weight={true}
     italic={true}
-    textColor="#ffffff"
+    textColor={darklight?'#000':'#fff'}
     strokeColor="#ff0000"
     minFontSize={20}
 
@@ -168,7 +170,7 @@ export default function Landing() {
   showTooltip={true}
   displayOverlayContent={true}
 />
-<p className="tilted-card-demo-text" style={{fontWeight:"500",fontSize:"25px",color:"white"}}>
+<p className="tilted-card-demo-text" style={{fontWeight:"500",fontSize:"25px",color:darklight?'#000':'#fff'}}>
      Save Your Diagrams
       <hr style={{backgroundColor:"black",marginTop:"0"}}></hr>
     </p>
@@ -189,7 +191,7 @@ export default function Landing() {
   displayOverlayContent={true}
 
 />
-<p className="tilted-card-demo-text" style={{fontWeight:"500",fontSize:"25px",color:"white"}}>
+<p className="tilted-card-demo-text" style={{fontWeight:"500",fontSize:"25px",color:darklight?'#000':'#fff'}}>
      Easy to deal with
       <hr style={{backgroundColor:"black",marginTop:"0"}}></hr>
     </p>
@@ -210,7 +212,7 @@ export default function Landing() {
   displayOverlayContent={true}
  
 />
-<p className="tilted-card-demo-text" style={{fontWeight:"500",fontSize:"25px",color:"white"}} >
+<p className="tilted-card-demo-text" style={{fontWeight:"500",fontSize:"25px",color:darklight?'#000':'#fff'}} >
       Fast and Secure
       <hr style={{backgroundColor:"black",marginTop:"0"}}></hr>
     </p>
@@ -286,16 +288,16 @@ it gives you the ability to create !
         <div style={sectionStyles}>
           <h3 style={headingStyles}>Follow Us</h3>
           <div style={socialIconStyles}>
-            <a href="#" style={socialLinkStyles} onMouseOver={(e) => e.target.style.color = linkHoverStyles.color} onMouseOut={(e) => e.target.style.color = socialLinkStyles.color}>
+            <a href="https://github.com/S1nju" style={socialLinkStyles} onMouseOver={(e) => e.target.style.color = linkHoverStyles.color} onMouseOut={(e) => e.target.style.color = socialLinkStyles.color}>
               🌐
             </a>
-            <a href="#" style={socialLinkStyles} onMouseOver={(e) => e.target.style.color = linkHoverStyles.color} onMouseOut={(e) => e.target.style.color = socialLinkStyles.color}>
+            <a href="https://github.com/S1nju" style={socialLinkStyles} onMouseOver={(e) => e.target.style.color = linkHoverStyles.color} onMouseOut={(e) => e.target.style.color = socialLinkStyles.color}>
               🐦
             </a>
-            <a href="#" style={socialLinkStyles} onMouseOver={(e) => e.target.style.color = linkHoverStyles.color} onMouseOut={(e) => e.target.style.color = socialLinkStyles.color}>
+            <a href="https://github.com/S1nju" style={socialLinkStyles} onMouseOver={(e) => e.target.style.color = linkHoverStyles.color} onMouseOut={(e) => e.target.style.color = socialLinkStyles.color}>
               📷
             </a>
-            <a href="#" style={socialLinkStyles} onMouseOver={(e) => e.target.style.color = linkHoverStyles.color} onMouseOut={(e) => e.target.style.color = socialLinkStyles.color}>
+            <a href="https://github.com/S1nju" style={socialLinkStyles} onMouseOver={(e) => e.target.style.color = linkHoverStyles.color} onMouseOut={(e) => e.target.style.color = socialLinkStyles.color}>
               🔗
             </a>
           </div>

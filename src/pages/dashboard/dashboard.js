@@ -174,7 +174,7 @@ export default function Dashboard(){
         navigation={NAVIGATION}
         branding={{
             logo:      <StorageIcon sx={{marginTop:"7px"}} /> ,
-            title: 'ERTODB',
+            title: 'ERD',
             homeUrl: '/',
           }}
         theme={demoTheme}

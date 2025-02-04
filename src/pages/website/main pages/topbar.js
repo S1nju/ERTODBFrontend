@@ -6,6 +6,9 @@ import { Axios } from "../../../api/axios";
 import Cookie from 'cookie-universal'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import Brightness7Icon from '@mui/icons-material/Brightness7'; // Sun Icon (Light Mode)
+import Brightness4Icon from '@mui/icons-material/Brightness4'; // Moon Icon (Dark Mode)
+
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -26,7 +29,7 @@ export default function TTopbar(d) {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   let handlechange=()=>{
-    setdark(prev=>!prev)
+    setdark(prev=>prev=!prev)
 
   }
   const handleOpenNavMenu = (event) => {
@@ -106,7 +109,7 @@ async function hlogout(){
               textDecoration: 'none',
             }}
           >
-           ERTODB
+           ERD
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -173,10 +176,11 @@ async function hlogout(){
               </Button>
             ))}
           </Box>
-          <Box sx={{ flexGrow: 0 }}>
           <IconButton color="inherit" onClick={handlechange}>
-          {darklight ? '🌙' : '🌞'}
+          {darklight ? <Brightness4Icon /> : <Brightness7Icon />}
         </IconButton>
+          <Box sx={{ flexGrow: 0 }}>
+         
           {user!==''? <div>
             <Tooltip title="Open settings">
               
