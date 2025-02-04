@@ -82,8 +82,9 @@ export default function Reactflow() {
       
       }
   
-  }; s();
-  })
+  }
+ s();
+  },[])
   const [navopen, setnavopen] = useState(false);
   const [forupdate, setforupdate] = useState(false);
   const [EntityForm,setEntityForm] =useState({
