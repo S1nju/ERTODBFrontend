@@ -234,10 +234,9 @@ About us
 </Typography>
 <hr style={{backgroundColor:"black",marginTop:"0",width:"30%",height:"2px"}}></hr>
 <Typography  style={{maxWidth:"800px"}} >
-this is an official website made by bouhaik anes moahmmed el amine 
-for a purpose to make conception of er diagrams very easy to deal with 
-this website can give the ability of drawing saving and managing various er diagram at once 
-it gives you the ability to create !
+Lorem Ipsum is simply dummy text of the 
+printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing 
+software like Aldus PageMaker including versions of Lorem Ipsum.
 </Typography>
 
     </div>
