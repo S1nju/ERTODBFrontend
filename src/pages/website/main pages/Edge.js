@@ -18,7 +18,7 @@ export default function Edge({ id, sourceX, sourceY, targetX, targetY,index}) {
     <>
       <BaseEdge id={id} path={edgePath} />
       <EdgeLabelRenderer>
-     {type[index]}
+     <span>{type[index]}</span>
         <Button
      color="error" size="small"
              style={{
