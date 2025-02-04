@@ -20,5 +20,5 @@ export default function Rauth({allowedRole}){
             window.location.pathname='/login'
         }
     },[])
-    return(cookie.get('token')?( u===''?<div style={{width:"100%",height:"100%",display:"flex",alignItems:"center",justifyContent:"center"}}> <Loading></Loading></div>:  ( u.data.authorities.filter((authority,i) => { return authority.authority === allowedRole[i]})? <Outlet></Outlet> :  <Err403></Err403>) ):<Navigate to='/login' replace={true}></Navigate>)
+    return(cookie.get('token')?( u===''?<div style={{width:"100%",height:"100vh",display:"flex",alignItems:"center",justifyContent:"center"}}> <Loading></Loading></div>:  ( u.data.authorities.filter((authority,i) => { return authority.authority === allowedRole[i]})? <Outlet></Outlet> :  <Err403></Err403>) ):<Navigate to='/login' replace={true}></Navigate>)
 }
