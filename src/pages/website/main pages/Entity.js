@@ -20,14 +20,14 @@ export default function Entity({data}) {
 <div className='tablecontent' style={{backgroundColor:darklight?'#272727':'#fff'}}>
     
     <Handle className='handle' type="source" position={Position.Left}> </Handle><p style={{color:darklight?"white":"black"}}>{data.pkey.name}
-        </p><p style={{opacity:0.8, color:darklight?"white":"black"}}>{data.pkey.type}   <VpnKeyIcon /></p>
+        </p><p style={{opacity:0.8, color:darklight?"white":"black"}}>{data.pkey.type}   <VpnKeyIcon style={{backgroundColor:"transparent",color:darklight?"white":"black"}} /></p>
     <Handle type="target" position={Position.Right}></Handle></div>
 
 <hr style={{margin:0}}></hr>
 {data.attribuetes.map((item,index)=>{
 return <div key={index}><div  className='tablecontent' style={{backgroundColor:darklight?'#272727':'#fff'}}>
   
-  <p style={{backgroundColor:"transparent"}} >{item.name}</p><p style={{opacity:0.8,backgroundColor:"transparent"}}>{item.type}</p></div>
+  <p style={{backgroundColor:"transparent",color:darklight?"white":"black"}} >{item.name}</p><p style={{opacity:0.8,backgroundColor:"transparent",color:darklight?"white":"black"}}>{item.type}</p></div>
 <hr style={{margin:0}}></hr></div>
 })
 
