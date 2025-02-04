@@ -1,11 +1,11 @@
-import { Button } from '@mui/material';
+import { IconButton } from '@mui/material';
 import { BaseEdge,getSmoothStepPath, 
     EdgeLabelRenderer,
     useReactFlow, } from '@xyflow/react';
     import CloseIcon from '@mui/icons-material/Close';
-import { useState } from 'react';
  
 export default function Edge({ id, sourceX, sourceY, targetX, targetY,index}) {
+  console.log(index)
   const [edgePath,labelX, labelY] = getSmoothStepPath({
     sourceX,
     sourceY,
@@ -23,7 +23,7 @@ export default function Edge({ id, sourceX, sourceY, targetX, targetY,index}) {
                 pointerEvents: 'all',
               }}>
      <span>{type[0]}</span>
-        <Button
+        <IconButton
      color="error" size="small"
             
              
@@ -32,7 +32,7 @@ export default function Edge({ id, sourceX, sourceY, targetX, targetY,index}) {
           onClick={() => setEdges((edges) => edges.filter((e) => e.id !== id))}
         >
           <CloseIcon></CloseIcon>
-        </Button></div>
+        </IconButton></div>
       </EdgeLabelRenderer>
     </>
   );
