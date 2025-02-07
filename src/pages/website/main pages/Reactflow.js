@@ -437,7 +437,7 @@ setopen(true)
       )
     );
     
-
+    setOpen2(false);
   }
   return (
     <div className='content' style={{ height: '100vh' }}>
