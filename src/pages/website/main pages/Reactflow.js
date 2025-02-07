@@ -421,15 +421,19 @@ setopen(true)
   }
 
   let handleChange22=(e)=>{
-    
+    setEdgesval(e.target.value)
+
+
+
+  }
+  let handletypechange=()=>{
     setEdges((eds) =>
       eds.map((edge) =>
         edge.id === selectededg.id
-          ? { ...edge, index:e.target.value }
+          ? { ...edge, index:edgesval }
           : edge
       )
     );
-
 
   }
   return (
@@ -501,7 +505,7 @@ setopen(true)
       </FormControl>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose}>
+          <Button autoFocus onClick={handletypechange}>
             Cancel
           </Button>
           <Button onClick={handleClose} autoFocus>
