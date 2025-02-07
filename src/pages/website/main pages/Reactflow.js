@@ -50,7 +50,7 @@ export default function Reactflow() {
   const handleClickOpen = (edg) => {
     setOpen2(true);
     setselectededg(edg)
-    setEdgesval(edg.data.index)
+   
     console.log(edg)
   };
 
