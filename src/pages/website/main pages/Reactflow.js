@@ -508,10 +508,10 @@ setopen(true)
       </FormControl>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handletypechange}>
+          <Button autoFocus onClick={handleClose}>
             Cancel
           </Button>
-          <Button onClick={handleClose} autoFocus>
+          <Button onClick={handletypechange} autoFocus>
             Save
           </Button>
         </DialogActions>
