@@ -83,13 +83,13 @@ export default function Reactflow() {
    
      setNodes(tab)
      let edg = res.data.tables.flatMap((i, k) =>
-      i.relationto.map((targetId) => ({
-        id: `e${k}-${targetId}`,
+      i.relationto.map((target) => ({
+        id: `e${k}-${target.targetId}`,
         source: k.toString(), // Ensure the source is the node's actual ID (assume `i.id` exists)
-        target: targetId.toString(), // Ensure target ID is a string
+        target: target.targetId.toString(), // Ensure target ID is a string
         type: 'custom-edge', // Add edge type (adjust based on your React Flow needs)
         animated: true,
-        data:{index:1}// Enable animation
+        data:{index:target.relationType}// Enable animation
       }))
     );
              setEdges(edg)
@@ -311,7 +311,7 @@ setattr(uv);
       db.tables= nodes.map((i,k)=>{
         const targetIds = edges
         .filter(edge => edge.source === i.id) // Filter edges with the specified source
-        .map(edge => parseInt(edge.target));
+        .map(edge => {return {targetId:edge.target,relationType:edge.data.index}});
         let obj ={
   name: i.data.title,
   pkey: i.data.pkey.name,
