@@ -40,8 +40,8 @@ export default function Reactflow() {
   let initialEdges = [];
   const [nodes, setNodes] = useState(initialNodes); 
   const [edges, setEdges] = useState(initialEdges);
-  const [edgesval, setEdgesval] = useState({});
-  const [selectededg, setselectededg] = useState(0);
+  const [edgesval, setEdgesval] = useState(0);
+  const [selectededg, setselectededg] = useState({});
   const [isopen, setopen] = useState(false);
   const [open2, setOpen2] = React.useState(false);
   const theme = useTheme();
@@ -51,7 +51,7 @@ export default function Reactflow() {
     setOpen2(true);
     setselectededg(edg)
     setEdgesval(edg.data.index)
-    console.log(edg)
+
   };
 
   const handleClose = () => {
@@ -431,7 +431,7 @@ setopen(true)
   let handletypechange=()=>{
     setEdges((eds) =>
       eds.map((edge) =>
-        edge.id === selectededg.id
+        edge.id == selectededg.id
       ? { ...edge, data:{index:edgesval} }
           : edge
       )
