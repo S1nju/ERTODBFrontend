@@ -4,7 +4,7 @@ import { BaseEdge,getSmoothStepPath,
     useReactFlow, } from '@xyflow/react';
     import CloseIcon from '@mui/icons-material/Close';
  
-export default function Edge({ id, sourceX, sourceY, targetX, targetY,index}) {
+export default function Edge({ id, sourceX, sourceY, targetX, targetY,data}) {
   console.log(index)
   const [edgePath,labelX, labelY] = getSmoothStepPath({
     sourceX,
@@ -22,7 +22,7 @@ export default function Edge({ id, sourceX, sourceY, targetX, targetY,index}) {
                 transform: `translate(-50%, -50%) translate(${labelX}px, ${labelY}px)`,
                 pointerEvents: 'all',
               }}>
-     <span>{type[index]}</span>
+     <span>{type[data.index]}</span>
         <IconButton
      color="error" size="small"
             

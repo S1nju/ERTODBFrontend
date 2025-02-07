@@ -87,7 +87,7 @@ export default function Reactflow() {
         target: targetId.toString(), // Ensure target ID is a string
         type: 'custom-edge', // Add edge type (adjust based on your React Flow needs)
         animated: true,
-        index:0 // Enable animation
+        data:{index:0}// Enable animation
       }))
     );
              setEdges(edg)
@@ -111,7 +111,7 @@ const edgeTypes = {
 }
   const [attr,setattr] =useState([]);
   const onConnect = useCallback(
-    (params) => {const edge = { ...params, type: 'custom-edge',animated:true,index:1 };
+    (params) => {const edge = { ...params, type: 'custom-edge',animated:true,data:{index:1} };
       return setEdges((eds) => addEdge(edge, eds))},
     [],
   );
