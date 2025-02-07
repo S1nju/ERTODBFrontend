@@ -50,6 +50,7 @@ export default function Reactflow() {
   const handleClickOpen = (edg) => {
     setOpen2(true);
     setselectededg(edg)
+    setEdgesval(edg.data.index)
   };
 
   const handleClose = () => {
@@ -430,10 +431,11 @@ setopen(true)
     setEdges((eds) =>
       eds.map((edge) =>
         edge.id === selectededg.id
-          ? { ...edge, index:edgesval }
+      ? { ...edge, data:{index:edgesval} }
           : edge
       )
     );
+    
 
   }
   return (
