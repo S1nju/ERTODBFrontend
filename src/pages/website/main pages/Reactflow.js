@@ -40,14 +40,15 @@ export default function Reactflow() {
   let initialEdges = [];
   const [nodes, setNodes] = useState(initialNodes); 
   const [edges, setEdges] = useState(initialEdges);
-  const [edgesval, setEdgesval] = useState(0);
+  const [selectededg, setselectededg] = useState(0);
   const [isopen, setopen] = useState(false);
   const [open2, setOpen2] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
-  const handleClickOpen = () => {
+  const handleClickOpen = (edg) => {
     setOpen2(true);
+    setselectededg(edg)
   };
 
   const handleClose = () => {
@@ -84,7 +85,8 @@ export default function Reactflow() {
         source: k.toString(), // Ensure the source is the node's actual ID (assume `i.id` exists)
         target: targetId.toString(), // Ensure target ID is a string
         type: 'custom-edge', // Add edge type (adjust based on your React Flow needs)
-        animated: true, // Enable animation
+        animated: true,
+        index:0 // Enable animation
       }))
     );
              setEdges(edg)
@@ -108,7 +110,7 @@ const edgeTypes = {
 }
   const [attr,setattr] =useState([]);
   const onConnect = useCallback(
-    (params) => {const edge = { ...params, type: 'custom-edge',animated:true };
+    (params) => {const edge = { ...params, type: 'custom-edge',animated:true,index:1 };
       return setEdges((eds) => addEdge(edge, eds))},
     [],
   );
@@ -418,7 +420,16 @@ setopen(true)
   }
 
   let handleChange22=(e)=>{
-    setEdgesval(e.target.value)
+    
+    setEdges((eds) =>
+      eds.map((edge) =>
+        edge.id === selectededg.id
+          ? { ...edge, index:e.target.value }
+          : edge
+      )
+    );
+
+
   }
   return (
     <div className='content' style={{ height: '100vh' }}>

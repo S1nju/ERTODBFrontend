@@ -22,7 +22,7 @@ export default function Edge({ id, sourceX, sourceY, targetX, targetY,index}) {
                 transform: `translate(-50%, -50%) translate(${labelX}px, ${labelY}px)`,
                 pointerEvents: 'all',
               }}>
-     <span>{type[0]}</span>
+     <span>{type[index]}</span>
         <IconButton
      color="error" size="small"
             
