@@ -47,10 +47,10 @@ export default function Reactflow() {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
-  const handleClickOpen = (edg) => {
+  const handleClickOpen = (ev,edg) => {
     setOpen2(true);
     setselectededg(edg)
-   
+    setEdgesval(edg.data.index)
     console.log(edg)
   };
 
