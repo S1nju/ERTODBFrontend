@@ -5,7 +5,7 @@ import { BaseEdge,getSmoothStepPath,
     import CloseIcon from '@mui/icons-material/Close';
  
 export default function Edge({ id, sourceX, sourceY, targetX, targetY,data}) {
-  console.log(index)
+
   const [edgePath,labelX, labelY] = getSmoothStepPath({
     sourceX,
     sourceY,
