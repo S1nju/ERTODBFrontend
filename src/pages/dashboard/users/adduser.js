@@ -1,21 +1,12 @@
 
-
 import { useState } from "react"
 import Loading from '../../loading/loading'
-
-
 import './users.css'
-
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Axios } from "../../../api/axios";
-
 import Alert from 'react-bootstrap/Alert';
-
-
-
 export default  function Adduser(){
-
   const [form,setform]=useState({
     name:'',
     email:'',
@@ -24,15 +15,12 @@ export default  function Adduser(){
 })
 console.log(form);
 function check(e){
-
-
     setform({...form,[e.target.name]:e.target.value})
 }
 const[loading,setloading]=useState(false);
 const[show,setshow]=useState(false);
 const[errtxt,seterrtxt]=useState('');
 async function create(){
-
 setloading(true);
     try {
       let res=
