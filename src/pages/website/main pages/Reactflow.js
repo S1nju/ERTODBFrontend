@@ -51,6 +51,7 @@ export default function Reactflow() {
     setOpen2(true);
     setselectededg(edg)
     setEdgesval(edg.data.index)
+    console.log(edg)
   };
 
   const handleClose = () => {
@@ -88,7 +89,7 @@ export default function Reactflow() {
         target: targetId.toString(), // Ensure target ID is a string
         type: 'custom-edge', // Add edge type (adjust based on your React Flow needs)
         animated: true,
-        data:{index:0}// Enable animation
+        data:{index:1}// Enable animation
       }))
     );
              setEdges(edg)
