@@ -40,6 +40,7 @@ export default function Reactflow() {
   let initialEdges = [];
   const [nodes, setNodes] = useState(initialNodes); 
   const [edges, setEdges] = useState(initialEdges);
+  const [edgesval, setEdgesval] = useState({});
   const [selectededg, setselectededg] = useState(0);
   const [isopen, setopen] = useState(false);
   const [open2, setOpen2] = React.useState(false);
