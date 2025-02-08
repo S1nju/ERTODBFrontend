@@ -516,12 +516,12 @@ setOpen3(true);
     fitView
       > 
         <Background />
-        <Fab onClick={save} sx={{
+        <Fab color='primary'  onClick={save} sx={{
             position: 'fixed',
             bottom: 25,
             right: 16,
             zIndex:70
-          }} size="small">
+          }} size="small" aria-label="save">
             
         <SaveIcon />
   </Fab>
@@ -534,9 +534,9 @@ setOpen3(true);
       </Fab>
       <Fab color="primary" aria-label="add"     sx={{
           position: 'fixed',
-          bottom: 45,
+          bottom: 75,
           right: 16,
-        }} onClick={transformtodb}>
+        }} size="small" onClick={transformtodb}>
         <AddIcon />
       </Fab>
        
