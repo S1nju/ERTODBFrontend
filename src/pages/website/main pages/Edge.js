@@ -12,7 +12,7 @@ export default function Edge({ id, sourceX, sourceY, targetX, targetY,data}) {
     targetX,
     targetY,
   });
- let  type=['1:n','n:1','1:1','n:n'];
+ let  type=['1:n','1:1','n:n'];
   const { setEdges } = useReactFlow();
   return (
     <>
