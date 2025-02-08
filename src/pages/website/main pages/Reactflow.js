@@ -472,7 +472,7 @@ let transformtodb=()=>{
 text +=`,${attri.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${attri.type.toLocaleUpperCase()}(**[INT_HERE]**) \n`
 
   })
-  let consttext;
+  let consttext='';
   const targetIds = edges
         .filter(edge => edge.source === item.id) // Filter edges with the specified source
         .map(edge => {return {targetId:edge.target,relationType:edge.data.index}});
@@ -494,7 +494,7 @@ if(relation.relationType==2){
    })
 
   })
-  text+=consttext+' );\n'+text2
+  text+= consttext+' );\n'+text2
  }
 )
 
