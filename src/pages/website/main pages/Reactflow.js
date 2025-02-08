@@ -446,7 +446,18 @@ let transformtodb=()=>{
  let arrtables= nodes.map((item,index)=>{
   text+=`CREATE TABLE ${item.data.title} (${item.data.pkey.name} ${item.data.pkey.type}(**[INT_HERE]**) PRIMARY KEY `
   item.data.attribuetes.map((attri)=>{
-text +=`${attri.name} ${attr.type}(**[INT_HERE]**) \n`
+text +=`,${attri.name} ${attri.type}(**[INT_HERE]**), \n`
+
+  })
+  item.data.relationto.map((relation,k)=>{
+   nodes.map((n,j)=>{
+   if( n.id==relation.targetId){
+if(relation.relationType==0){
+  text+=`${n.data.pkey.name} ${n.data.pkey.type}(**[INT_HERE]**) FORIENG KEY(${n.data.pkey.name}) REFRENCES ${n.data.title}.${n.data.pkey.name}`
+}
+
+   }
+   })
 
   })
   text+=' )\n'
