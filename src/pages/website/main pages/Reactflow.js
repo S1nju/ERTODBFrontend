@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState, useCallback, useMemo,useEffect } from 'react';
 import {
   ReactFlow,
@@ -9,6 +9,7 @@ import {
   addEdge,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
+import { menu } from "../../../contex/hamburger";
 import CodeMirror from '@uiw/react-codemirror';
 import { sql } from "@codemirror/lang-sql";
 import Entity from './Entity';
@@ -39,6 +40,7 @@ export default function Reactflow() {
   let number = id[id.length - 1];
   const nodetype = useMemo(()=>({entitytable:Entity}),[])
   let initialNodes = []; 
+   let {darklight,setdark} = useContext(menu);
   let initialEdges = [];
   const [nodes, setNodes] = useState(initialNodes); 
   const [edges, setEdges] = useState(initialEdges);
@@ -555,7 +557,7 @@ setOpen3(true);
         extensions={[sql()]} // Enables SQL syntax highlighting
         onChange={(value) => settdbtext(value)}
         options={{
-          theme: "light",
+          theme: darklight?"dark":"light",
         }}
       />
         </DialogContent>
