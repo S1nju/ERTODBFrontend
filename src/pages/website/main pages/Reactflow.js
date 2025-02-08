@@ -9,7 +9,7 @@ import {
   addEdge,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
-import { Controlled as CodeMirror } from "@uiw/react-codemirror";
+import CodeMirror from '@uiw/react-codemirror';
 import { sql } from "@codemirror/lang-sql";
 import Entity from './Entity';
 import Button from '@mui/material/Button';
