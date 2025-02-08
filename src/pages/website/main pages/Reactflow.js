@@ -11,6 +11,7 @@ import {
 import '@xyflow/react/dist/style.css';
 import { menu } from "../../../contex/hamburger";
 import CodeMirror from '@uiw/react-codemirror';
+import { materialDark } from "@codemirror/theme-material";
 import { sql } from "@codemirror/lang-sql";
 import Entity from './Entity';
 import Button from '@mui/material/Button';
@@ -454,7 +455,7 @@ let transformtodb=()=>{
   let text2=''
  
  let arrtables= nodes.map((item,index)=>{
-  text+=`CREATE TABLE ${item.data.title} (${item.data.pkey.name} ${item.data.pkey.type}(**[INT_HERE]**) PRIMARY KEY `
+  text+=`CREATE TABLE ${item.data.title}\n (${item.data.pkey.name} ${item.data.pkey.type}(**[INT_HERE]**) PRIMARY KEY `
   item.data.attribuetes.map((attri)=>{
 text +=`,${attri.name} ${attri.type}(**[INT_HERE]**), \n`
 
@@ -467,10 +468,10 @@ text +=`,${attri.name} ${attri.type}(**[INT_HERE]**), \n`
    if( n.id==relation.targetId){
   
 if(relation.relationType==0||relation.relationType==1){
-  text+=`,${n.data.pkey.name} ${n.data.pkey.type}(**[INT_HERE]**)  FOREIGN KEY(${n.data.pkey.name}) REFERENCES ${n.data.title}(${n.data.pkey.name})`
+  text+=`,${n.data.pkey.name} ${n.data.pkey.type}(**[INT_HERE]**),\n  FOREIGN KEY(${n.data.pkey.name}) REFERENCES ${n.data.title}(${n.data.pkey.name})\n`
 }
 if(relation.relationType==2){
-  text2=`CREATE TABLE relation_${n.data.title}_${item.data.title}(${n.data.pkey.name} ${n.data.pkey.type}(**[INT_HERE]**),${item.data.pkey.name} ${item.data.pkey.type}(**[INT_HERE]**),\n PRIMARY KEY(${n.data.pkey.name},${item.data.pkey.name}),\nFOREIGN KEY(${n.data.pkey.name}) REFERENCES ${n.data.title}(${n.data.pkey.name}),FOREIGN KEY(${item.data.pkey.name}) REFERENCES ${item.data.title}(${item.data.pkey.name})`
+  text2=`CREATE TABLE relation_${n.data.title}_${item.data.title}\n(${n.data.pkey.name} ${n.data.pkey.type}(**[INT_HERE]**),\n${item.data.pkey.name} ${item.data.pkey.type}(**[INT_HERE]**),\n PRIMARY KEY(${n.data.pkey.name},${item.data.pkey.name}),\nFOREIGN KEY(${n.data.pkey.name}) REFERENCES ${n.data.title}(${n.data.pkey.name}),\nFOREIGN KEY(${item.data.pkey.name}) REFERENCES ${item.data.title}(${item.data.pkey.name})`
 }
 
    }
@@ -557,7 +558,7 @@ setOpen3(true);
         extensions={[sql()]} // Enables SQL syntax highlighting
         onChange={(value) => settdbtext(value)}
         options={{
-          theme: darklight?"dark":"light",
+          theme: darklight?materialDark:"light",
         }}
       />
         </DialogContent>
