@@ -9,6 +9,8 @@ import {
   addEdge,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
+import { Controlled as CodeMirror } from "@uiw/react-codemirror";
+import { sql } from "@codemirror/lang-sql";
 import Entity from './Entity';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
@@ -532,6 +534,32 @@ console.log(dbtext)
         <Controls />
       
       </ReactFlow>
+      <Dialog
+        fullScreen={fullScreen}
+        open={open2}
+        onClose={handleClose}
+        aria-labelledby="responsive-dialog-title"
+      >
+        <DialogTitle id="responsive-dialog-title">
+          {"THE SQL CODE FOR THIS ER"}
+        </DialogTitle>
+        <DialogContent>
+        <CodeMirror
+        value={dbtext}
+        height="200px"
+        extensions={[sql()]} // Enables SQL syntax highlighting
+        onChange={(value) => settdbtext(value)}
+        options={{
+          theme: "light",
+        }}
+      />
+        </DialogContent>
+        <DialogActions>
+          <Button autoFocus onClick={handleClose}>
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
       <Dialog
         fullScreen={fullScreen}
         open={open2}
