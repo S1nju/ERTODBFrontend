@@ -15,7 +15,7 @@
  .tabletitle{
   display: flex;
   text-align: center;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   color: white;
   font-weight:300;
