@@ -439,6 +439,29 @@ setopen(true)
     
     setOpen2(false);
   }
+
+const [dbtext,settdbtext]=useState('');
+let transformtodb=()=>{
+  let text ='';
+ let arrtables= nodes.map((item,index)=>{
+  text+=`CREATE TABLE ${item.data.title} (${item.data.pkey.name} ${item.data.pkey.type}(**[INT_HERE]**) PRIMARY KEY `
+  item.data.attribuetes.map((attri)=>{
+text +=`${attri.name} ${attr.type}(**[INT_HERE]**) ) \n`
+
+  })
+ }
+)
+settdbtext(text)
+}
+
+
+
+
+
+
+
+
+
   return (
     <div className='content' style={{ height: '100vh' }}>
 
@@ -473,6 +496,13 @@ setopen(true)
           bottom: 16,
           right: 16,
         }} onClick={()=>setnavopen(true)}>
+        <AddIcon />
+      </Fab>
+      <Fab color="primary" aria-label="add"     sx={{
+          position: 'fixed',
+          bottom: 0,
+          right: 0,
+        }} onClick={transformtodb}>
         <AddIcon />
       </Fab>
        
