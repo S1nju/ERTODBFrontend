@@ -494,9 +494,10 @@ if(relation.relationType==2){
    })
 
   })
-  text+= consttext+' );\n'+text2
+  text+= consttext+' );\n'
  }
 )
+text+=text2;
 
 settdbtext(text);
 setOpen3(true);
