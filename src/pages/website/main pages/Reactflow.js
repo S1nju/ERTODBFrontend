@@ -312,8 +312,9 @@ setattr(uv);
   };
   const [saveAlert,setSavealgert]=useState(false);
   const [saveAlerts,setSavealgerts]=useState(false);
+  const [Load,setload]=useState(false);
   const save = async() => {
-  
+  setload(true);
     try {
     let res = await Axios.get('/db/db?id='+number)
    if(res.status===200){
@@ -335,15 +336,18 @@ setattr(uv);
     })
      await Axios.put('/db/update',db)
 setSavealgerts(true)
+setload(false)
 setTimeout(()=>{setSavealgerts(false)},2000);
     }
     else{
       setSavealgert(true)
+      setload(false)
       setTimeout(()=>{setSavealgert(false)},2000);
     }}
-      
+    setload(false)
     } catch (error) {
       setSavealgert(true)
+      setload(false)
       setTimeout(()=>{setSavealgert(false)},2000);
     
       
@@ -531,7 +535,19 @@ setOpen3(true);
             zIndex:70
           }} size="small" aria-label="save">
             
-        <SaveIcon />
+ 
+        {Load? (
+          <CircularProgress
+            size={68}
+            sx={{
+              color: green[500],
+              position: 'absolute',
+              top: -6,
+              left: -6,
+              zIndex: 1,
+            }}
+          />
+        ) :       <SaveIcon />}
   </Fab>
         <Fab color="primary" aria-label="add"     sx={{
           position: 'fixed',
