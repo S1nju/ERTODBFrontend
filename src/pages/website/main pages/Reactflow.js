@@ -475,7 +475,7 @@ text +=`,${attri.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${a
   let consttext='';
   const targetIds = edges
         .filter(edge => edge.target === item.id) // Filter edges with the specified source
-        .map(edge => {return {targetId:edge.target,relationType:edge.data.index}});
+        .map(edge => {return {targetId:edge.source,relationType:edge.data.index}});
     
         targetIds.map((relation,k)=>{
    nodes.forEach((n)=>{
