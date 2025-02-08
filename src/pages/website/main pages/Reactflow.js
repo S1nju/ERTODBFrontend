@@ -471,7 +471,7 @@ if(relation.relationType==0||relation.relationType==1){
   text+=`,${n.data.pkey.name} ${n.data.pkey.type}(**[INT_HERE]**),\n  FOREIGN KEY(${n.data.pkey.name}) REFERENCES ${n.data.title}(${n.data.pkey.name})\n`
 }
 if(relation.relationType==2){
-  text2=`CREATE TABLE relation_${n.data.title}_${item.data.title}\n(${n.data.pkey.name} ${n.data.pkey.type}(**[INT_HERE]**),\n${item.data.pkey.name} ${item.data.pkey.type}(**[INT_HERE]**),\n PRIMARY KEY(${n.data.pkey.name},${item.data.pkey.name}),\nFOREIGN KEY(${n.data.pkey.name}) REFERENCES ${n.data.title}(${n.data.pkey.name}),\nFOREIGN KEY(${item.data.pkey.name}) REFERENCES ${item.data.title}(${item.data.pkey.name})`
+  text2=`CREATE TABLE relation_${n.data.title}_${item.data.title}\n(${n.data.pkey.name} ${n.data.pkey.type}(**[INT_HERE]**),\n${item.data.pkey.name} ${item.data.pkey.type}(**[INT_HERE]**),\n PRIMARY KEY(${n.data.pkey.name},${item.data.pkey.name}),\nFOREIGN KEY(${n.data.pkey.name}) REFERENCES ${n.data.title}(${n.data.pkey.name}),\nFOREIGN KEY(${item.data.pkey.name}) REFERENCES ${item.data.title}(${item.data.pkey.name}));`
 }
 
    }
@@ -516,14 +516,15 @@ setOpen3(true);
     fitView
       > 
         <Background />
-        <IconButton onClick={save} sx={{
+        <Fab onClick={save} sx={{
             position: 'fixed',
-            bottom: 100,
-            right: 27,
+            bottom: 25,
+            right: 16,
             zIndex:70
-          }} >
-        <SaveIcon sx={{ fontSize: 20, color: 'black' }} />
-  </IconButton>
+          }} size="small">
+            
+        <SaveIcon />
+  </Fab>
         <Fab color="primary" aria-label="add"     sx={{
           position: 'fixed',
           bottom: 16,
@@ -533,8 +534,8 @@ setOpen3(true);
       </Fab>
       <Fab color="primary" aria-label="add"     sx={{
           position: 'fixed',
-          bottom: 0,
-          right: 0,
+          bottom: 45,
+          right: 16,
         }} onClick={transformtodb}>
         <AddIcon />
       </Fab>
