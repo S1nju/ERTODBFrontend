@@ -462,45 +462,69 @@ setopen(true)
   }
 
 const [dbtext,settdbtext]=useState('');
-let transformtodb=()=>{
-  let text ='';
-  let text2=''
- 
- nodes.forEach((item,index)=>{
-  text+=`CREATE TABLE ${item.data.title.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}\n (${item.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${item.data.pkey.type.toLocaleUpperCase()}(**[INT_HERE]**) PRIMARY KEY \n`
-  item.data.attribuetes.map((attri)=>{
-text +=`,${attri.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${attri.type.toLocaleUpperCase()}(**[INT_HERE]**) \n`
+const transformtodb = () => {
+  let text = '';
+  let text2 = '';
 
-  })
-  let consttext='';
-  const targetIds = edges
-        .filter(edge => edge.source === item.id) // Filter edges with the specified source
-        .map(edge => {return {targetId:edge.target,relationType:edge.data.index}});
-    
-        targetIds.map((relation,k)=>{
-   nodes.forEach((n,j)=>{
-   if( n.id==relation.targetId){
-  
-if(relation.relationType==0||relation.relationType==1){
-  text+=`,${n.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${n.data.pkey.type.toLocaleUpperCase()}(**[INT_HERE]**)\n`
-  consttext+=`,FOREIGN KEY(${n.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}) REFERENCES ${n.data.title.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}(${n.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")})\n`
-}
-if(relation.relationType==2){
-  text2=`CREATE TABLE relation_${n.data.title.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}_${item.data.title.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}\n(${n.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${n.data.pkey.type.toLocaleUpperCase()}(**[INT_HERE]**),\n${item.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${item.data.pkey.type.toLocaleUpperCase()}(**[INT_HERE]**),\n PRIMARY KEY(${n.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")},${item.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}),\nFOREIGN KEY(${n.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}) REFERENCES ${n.data.title.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}(${n.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}),\nFOREIGN KEY(${item.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}) REFERENCES ${item.data.title.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}(${item.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}));`
-}
+  nodes.forEach((item) => {
+      text += `CREATE TABLE ${item.data.title.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}\n (` +
+          `${item.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${item.data.pkey.type.toUpperCase()} PRIMARY KEY,\n`;
 
-   }
+      // Add attributes
+      item.data.attribuetes.forEach((attri) => {
+          text += `${attri.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${attri.type.toUpperCase()},\n`;
+      });
 
-   })
+      let constraints = '';
 
-  })
-  text+= consttext+' );\n'+text2
- }
-)
+      // Get all target nodes where this item is the source
+      const targetIds = edges
+          .filter(edge => edge.source === item.id)
+          .map(edge => ({
+              targetId: edge.target,
+              relationType: edge.data.index
+          }));
 
-settdbtext(text);
-setOpen3(true);
-}
+      targetIds.forEach((relation) => {
+          nodes.forEach((targetNode) => {
+              if (targetNode.id === relation.targetId) {
+
+                  // Type 0 or 1: Add FK inside the Target Table (not the source)
+                  if (relation.relationType === 0 || relation.relationType === 1) {
+                      targetNode.data.attribuetes.push({
+                          name: item.data.pkey.name,
+                          type: item.data.pkey.type
+                      });
+
+                      constraints += `FOREIGN KEY (${item.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}) REFERENCES ${item.data.title.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}(${item.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}),\n`;
+                  }
+
+                  // Type 2: Create a relation table
+                  if (relation.relationType === 2) {
+                      text2 += `CREATE TABLE relation_${targetNode.data.title.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}_${item.data.title.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}\n (` +
+                          `${targetNode.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${targetNode.data.pkey.type.toUpperCase()},\n` +
+                          `${item.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${item.data.pkey.type.toUpperCase()},\n` +
+                          `PRIMARY KEY (${targetNode.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}, ${item.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}),\n` +
+                          `FOREIGN KEY (${targetNode.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}) REFERENCES ${targetNode.data.title.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}(${targetNode.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}),\n` +
+                          `FOREIGN KEY (${item.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}) REFERENCES ${item.data.title.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}(${item.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")})\n);\n`;
+                  }
+              }
+          });
+      });
+
+      // Remove trailing comma before adding constraints
+      if (text.endsWith(",\n")) {
+          text = text.slice(0, -2) + "\n";
+      }
+
+      text += constraints ? constraints.slice(0, -2) + "\n" : ''; // Remove last comma
+      text += ");\n";
+  });
+
+  text += text2;
+  settdbtext(text);
+  setOpen3(true);
+};
 
 
 
