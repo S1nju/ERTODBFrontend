@@ -466,7 +466,7 @@ let transformtodb=()=>{
   let text ='';
   let text2=''
  
- nodes.forEach((item,index)=>{
+ nodes.forEach((item)=>{
   text+=`CREATE TABLE ${item.data.title.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}\n (${item.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${item.data.pkey.type.toLocaleUpperCase()}(**[INT_HERE]**) PRIMARY KEY \n`
   item.data.attribuetes.map((attri)=>{
 text +=`,${attri.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${attri.type.toLocaleUpperCase()}(**[INT_HERE]**) \n`
@@ -474,11 +474,11 @@ text +=`,${attri.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${a
   })
   let consttext='';
   const targetIds = edges
-        .filter(edge => edge.source === item.id) // Filter edges with the specified source
+        .filter(edge => edge.target === item.id) // Filter edges with the specified source
         .map(edge => {return {targetId:edge.target,relationType:edge.data.index}});
     
         targetIds.map((relation,k)=>{
-   nodes.forEach((n,j)=>{
+   nodes.forEach((n)=>{
    if( n.id==relation.targetId){
   
 if(relation.relationType==0||relation.relationType==1){
