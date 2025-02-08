@@ -446,11 +446,13 @@ let transformtodb=()=>{
  let arrtables= nodes.map((item,index)=>{
   text+=`CREATE TABLE ${item.data.title} (${item.data.pkey.name} ${item.data.pkey.type}(**[INT_HERE]**) PRIMARY KEY `
   item.data.attribuetes.map((attri)=>{
-text +=`${attri.name} ${attr.type}(**[INT_HERE]**) ) \n`
+text +=`${attri.name} ${attr.type}(**[INT_HERE]**) \n`
 
   })
+  text+=' )\n'
  }
 )
+
 settdbtext(text)
 }
 
