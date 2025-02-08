@@ -11,7 +11,7 @@ import {
 import '@xyflow/react/dist/style.css';
 import { menu } from "../../../contex/hamburger";
 import CodeMirror from '@uiw/react-codemirror';
-import { materialDark } from "@codemirror/theme-material";
+import { oneDark } from "@codemirror/theme-one-dark";
 import { sql } from "@codemirror/lang-sql";
 import Entity from './Entity';
 import Button from '@mui/material/Button';
@@ -558,7 +558,7 @@ setOpen3(true);
         extensions={[sql()]} // Enables SQL syntax highlighting
         onChange={(value) => settdbtext(value)}
         options={{
-          theme: darklight?materialDark:"light",
+          theme: darklight?oneDark:"light",
         }}
       />
         </DialogContent>
