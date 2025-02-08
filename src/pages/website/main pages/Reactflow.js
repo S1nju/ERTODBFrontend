@@ -46,6 +46,7 @@ export default function Reactflow() {
   const [selectededg, setselectededg] = useState({});
   const [isopen, setopen] = useState(false);
   const [open2, setOpen2] = React.useState(false);
+  const [open3, setOpen3] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -58,6 +59,9 @@ export default function Reactflow() {
 
   const handleClose = () => {
     setOpen2(false);
+  };
+  const handleClose2 = () => {
+    setOpen3(false);
   };
   useEffect(()=>{
     const s = async (params) => {
@@ -446,6 +450,7 @@ const [dbtext,settdbtext]=useState('');
 let transformtodb=()=>{
   let text ='';
   let text2=''
+ 
  let arrtables= nodes.map((item,index)=>{
   text+=`CREATE TABLE ${item.data.title} (${item.data.pkey.name} ${item.data.pkey.type}(**[INT_HERE]**) PRIMARY KEY `
   item.data.attribuetes.map((attri)=>{
@@ -475,8 +480,8 @@ if(relation.relationType==2){
  }
 )
 
-settdbtext(text)
-console.log(dbtext)
+settdbtext(text);
+setOpen3(true);
 }
 
 
@@ -536,8 +541,8 @@ console.log(dbtext)
       </ReactFlow>
       <Dialog
         fullScreen={fullScreen}
-        open={open2}
-        onClose={handleClose}
+        open={open3}
+        onClose={handleClose2}
         aria-labelledby="responsive-dialog-title"
       >
         <DialogTitle id="responsive-dialog-title">
@@ -555,7 +560,7 @@ console.log(dbtext)
       />
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose}>
+          <Button autoFocus onClick={handleClose2}>
             Close
           </Button>
         </DialogActions>
