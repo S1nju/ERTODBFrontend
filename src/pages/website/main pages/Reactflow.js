@@ -508,8 +508,8 @@ setOpen3(true);
 
 
 
-{saveAlerts&& <Alert style={{position:"absolute",top:"100px",right:'50%'}} severity="success">Save Success</Alert> }
-{saveAlert&& <Alert style={{position:"absolute",top:"100px",right:'50%'}}  severity="error">Save Failed</Alert> }
+{saveAlerts&& <Alert style={{position:"absolute",top:"15%",right:'60%',zIndex:90}} severity="success">Save Success</Alert> }
+{saveAlert&& <Alert style={{position:"absolute",top:"15%",right:'60%',zIndex:90}}  severity="error">Save Failed</Alert> }
 
       <ReactFlow
         nodes={nodes}
