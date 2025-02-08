@@ -456,7 +456,8 @@ text +=`,${attri.name} ${attri.type}(**[INT_HERE]**), \n`
         targetIds.map((relation,k)=>{
    nodes.map((n,j)=>{
    if( n.id==relation.targetId){
-if(relation.relationType==1||relation.relationType==2){
+  
+if(relation.relationType==0||relation.relationType==2){
   text+=`,${n.data.pkey.name} ${n.data.pkey.type}(**[INT_HERE]**)  FOREIGN KEY(${n.data.pkey.name}) REFERENCES ${n.data.title}(${n.data.pkey.name})`
 }
 if(relation.relationType==3){
