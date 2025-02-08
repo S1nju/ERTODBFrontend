@@ -518,8 +518,8 @@ setOpen3(true);
         <Background />
         <Fab color='primary'  onClick={save} sx={{
             position: 'fixed',
-            bottom: 25,
-            right: 16,
+            bottom: 120,
+            right: 23,
             zIndex:70
           }} size="small" aria-label="save">
             
@@ -535,7 +535,7 @@ setOpen3(true);
       <Fab color="primary" aria-label="add"     sx={{
           position: 'fixed',
           bottom: 75,
-          right: 16,
+          right: 23,
         }} size="small" onClick={transformtodb}>
         <AddIcon />
       </Fab>
