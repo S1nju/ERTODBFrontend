@@ -454,6 +454,7 @@ text +=`${attri.name} ${attr.type}(**[INT_HERE]**) \n`
 )
 
 settdbtext(text)
+console.log(dbtext)
 }
 
 
