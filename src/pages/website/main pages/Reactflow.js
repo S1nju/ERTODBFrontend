@@ -467,7 +467,7 @@ let transformtodb=()=>{
   let text2=''
  
  nodes.forEach((item,index)=>{
-  text+=`CREATE TABLE ${item.data.title.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}\n (${item.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${item.data.pkey.type.toLocaleUpperCase()}(**[INT_HERE]**) PRIMARY KEY `
+  text+=`CREATE TABLE ${item.data.title.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}\n (${item.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${item.data.pkey.type.toLocaleUpperCase()}(**[INT_HERE]**) PRIMARY KEY \n`
   item.data.attribuetes.map((attri)=>{
 text +=`,${attri.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${attri.type.toLocaleUpperCase()}(**[INT_HERE]**) \n`
 
