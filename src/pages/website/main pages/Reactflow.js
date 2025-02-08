@@ -554,9 +554,9 @@ console.log(dbtext)
           size='small'
         >
           <MenuItem value={0}>1:n</MenuItem>
-          <MenuItem value={1}>n:1</MenuItem>
-          <MenuItem value={2}>1:1</MenuItem>
-          <MenuItem value={3}>n:n</MenuItem>
+    
+          <MenuItem value={1}>1:1</MenuItem>
+          <MenuItem value={2}>n:n</MenuItem>
         </Select>
       </FormControl>
         </DialogContent>
