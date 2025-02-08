@@ -449,7 +449,10 @@ let transformtodb=()=>{
 text +=`,${attri.name} ${attri.type}(**[INT_HERE]**), \n`
 
   })
-  item.data.relationto.map((relation,k)=>{
+  const targetIds = edges
+        .filter(edge => edge.source === item.id) // Filter edges with the specified source
+        .map(edge => {return {targetId:edge.target,relationType:edge.data.index}});
+        targetIds.map((relation,k)=>{
    nodes.map((n,j)=>{
    if( n.id==relation.targetId){
 if(relation.relationType==0){
