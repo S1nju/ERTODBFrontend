@@ -469,18 +469,21 @@ let transformtodb=()=>{
  nodes.forEach((item,index)=>{
   text+=`CREATE TABLE ${item.data.title.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}\n (${item.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${item.data.pkey.type.toLocaleUpperCase()}(**[INT_HERE]**) PRIMARY KEY `
   item.data.attribuetes.map((attri)=>{
-text +=`,${attri.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${attri.type.toLocaleUpperCase()}(**[INT_HERE]**), \n`
+text +=`,${attri.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${attri.type.toLocaleUpperCase()}(**[INT_HERE]**) \n`
 
   })
+  let consttext;
   const targetIds = edges
         .filter(edge => edge.source === item.id) // Filter edges with the specified source
         .map(edge => {return {targetId:edge.target,relationType:edge.data.index}});
+    
         targetIds.map((relation,k)=>{
    nodes.forEach((n,j)=>{
    if( n.id==relation.targetId){
   
 if(relation.relationType==0||relation.relationType==1){
-  text+=`,${n.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${n.data.pkey.type.toLocaleUpperCase()}(**[INT_HERE]**),\n  FOREIGN KEY(${n.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}) REFERENCES ${n.data.title.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}(${n.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")})\n`
+  text+=`,${n.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${n.data.pkey.type.toLocaleUpperCase()}(**[INT_HERE]**)\n`
+  consttext+=`,FOREIGN KEY(${n.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}) REFERENCES ${n.data.title.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}(${n.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")})\n`
 }
 if(relation.relationType==2){
   text2=`CREATE TABLE relation_${n.data.title.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}_${item.data.title.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}\n(${n.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${n.data.pkey.type.toLocaleUpperCase()}(**[INT_HERE]**),\n${item.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")} ${item.data.pkey.type.toLocaleUpperCase()}(**[INT_HERE]**),\n PRIMARY KEY(${n.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")},${item.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}),\nFOREIGN KEY(${n.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}) REFERENCES ${n.data.title.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}(${n.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}),\nFOREIGN KEY(${item.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}) REFERENCES ${item.data.title.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}(${item.data.pkey.name.replace(/[\s;!@#$%^&*()+=\[\]{}:"'<>,.?/\\|-]/g, "_")}));`
@@ -491,7 +494,7 @@ if(relation.relationType==2){
    })
 
   })
-  text+=' );\n'+text2
+  text+=consttext+' );\n'+text2
  }
 )
 
