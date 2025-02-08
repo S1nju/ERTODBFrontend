@@ -1,12 +1,13 @@
 import { IconButton } from '@mui/material';
 import { BaseEdge,getSmoothStepPath, 
     EdgeLabelRenderer,
-    useReactFlow, } from '@xyflow/react';
+    useReactFlow,
+    getBezierPath, } from '@xyflow/react';
     import CloseIcon from '@mui/icons-material/Close';
  
 export default function Edge({ id, sourceX, sourceY, targetX, targetY,data}) {
 
-  const [edgePath,labelX, labelY] = getSmoothStepPath({
+  const [edgePath,labelX, labelY] = getBezierPath({
     sourceX,
     sourceY,
     targetX,
