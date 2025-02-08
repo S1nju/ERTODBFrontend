@@ -15,7 +15,7 @@
  .tabletitle{
   display: flex;
   text-align: center;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   color: white;
   font-weight:300;
@@ -28,7 +28,7 @@
  }
  .tablecontent{
   display: flex;
-  gap:30px;
+ justify-content: space-between;
   padding-left: 8px;
   padding-right: 8px;
   margin: 0;
