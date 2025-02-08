@@ -443,6 +443,7 @@ setopen(true)
 const [dbtext,settdbtext]=useState('');
 let transformtodb=()=>{
   let text ='';
+  let text2=''
  let arrtables= nodes.map((item,index)=>{
   text+=`CREATE TABLE ${item.data.title} (${item.data.pkey.name} ${item.data.pkey.type}(**[INT_HERE]**) PRIMARY KEY `
   item.data.attribuetes.map((attri)=>{
@@ -455,15 +456,18 @@ text +=`,${attri.name} ${attri.type}(**[INT_HERE]**), \n`
         targetIds.map((relation,k)=>{
    nodes.map((n,j)=>{
    if( n.id==relation.targetId){
-if(relation.relationType==0){
-  text+=`${n.data.pkey.name} ${n.data.pkey.type}(**[INT_HERE]**) FORIENG KEY(${n.data.pkey.name}) REFRENCES ${n.data.title}.${n.data.pkey.name}`
+if(relation.relationType==0||relation.relationType==2){
+  text+=`,${n.data.pkey.name} ${n.data.pkey.type}(**[INT_HERE]**)  FOREIGN KEY(${n.data.pkey.name}) REFERENCES ${n.data.title}(${n.data.pkey.name})`
+}
+if(relation.relationType==3){
+  text2=`CREATE TABLE relation${n.data.title}_${item.data.title}(${n.data.pkey.name} ${n.data.pkey.type}(**[INT_HERE]**),${item.data.pkey.name} ${item.data.pkey.type}(**[INT_HERE]**),\n PRIMARY KEY(${n.data.pkey.name},${item.data.pkey.name}),\nFOREIGN KEY(${n.data.pkey.name}) REFERENCES ${n.data.title}(${n.data.pkey.name},FOREIGN KEY(${item.data.pkey.name}) REFERENCES ${item.data.title}(${item.data.pkey.name})`
 }
 
    }
    })
 
   })
-  text+=' )\n'
+  text+=' );\n'+text2
  }
 )
 
