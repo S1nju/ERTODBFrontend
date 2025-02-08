@@ -9,6 +9,7 @@ import {
   addEdge,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
+import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
 import { menu } from "../../../contex/hamburger";
 import CodeMirror from '@uiw/react-codemirror';
 import { oneDark } from "@codemirror/theme-one-dark";
@@ -309,6 +310,8 @@ uv[i][e.target.name]=e.target.value;
 setattr(uv);
 
   };
+  const [saveAlert,setSavealgert]=useState(false);
+  const [saveAlerts,setSavealgerts]=useState(false);
   const save = async() => {
   
     try {
@@ -331,13 +334,18 @@ setattr(uv);
                     return obj
     })
      await Axios.put('/db/update',db)
-
+setSavealgerts(true)
+setTimeout(()=>{setSavealgerts(false)},2000);
     }
     else{
-
+      setSavealgert(true)
+      setTimeout(()=>{setSavealgert(false)},2000);
     }}
       
     } catch (error) {
+      setSavealgert(true)
+      setTimeout(()=>{setSavealgert(false)},2000);
+    
       
     }
 
@@ -500,8 +508,8 @@ setOpen3(true);
 
 
 
-
-
+{saveAlerts&& <Alert severity="success">Save Success</Alert> }
+{saveAlert&& <Alert severity="error">Save Failed</Alert> }
 
       <ReactFlow
         nodes={nodes}
@@ -537,7 +545,7 @@ setOpen3(true);
           bottom: 75,
           right: 23,
         }} size="small" onClick={transformtodb}>
-        <AddIcon />
+        <ChangeCircleIcon />
       </Fab>
        
         <Controls />
