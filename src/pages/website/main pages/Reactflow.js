@@ -509,7 +509,7 @@ setOpen3(true);
 
 
 {saveAlerts&& <Alert style={{position:"absolute"}} severity="success">Save Success</Alert> }
-{saveAlert&& <Alert style={{position:"absolute"}} severity="error">Save Failed</Alert> }
+{saveAlert&& <Alert style={{position:"absolute"}}  severity="error">Save Failed</Alert> }
 
       <ReactFlow
         nodes={nodes}
@@ -566,9 +566,9 @@ setOpen3(true);
         height="200px"
         extensions={[sql()]} // Enables SQL syntax highlighting
         onChange={(value) => settdbtext(value)}
-        options={{
-          theme: darklight?oneDark:"light",
-        }}
+        theme=
+          { darklight?oneDark:"light"}
+        
       />
         </DialogContent>
         <DialogActions>
