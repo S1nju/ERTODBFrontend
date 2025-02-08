@@ -30,7 +30,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import SaveIcon from '@mui/icons-material/Save';
 import './App.css'
 import { Axios } from '../../../api/axios.js';
-import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, IconButton, useMediaQuery, useTheme } from '@mui/material';
+import { CircularProgress, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, IconButton, useMediaQuery, useTheme } from '@mui/material';
 
 
 
@@ -538,14 +538,8 @@ setOpen3(true);
  
         {Load? (
           <CircularProgress
-            size={68}
-            sx={{
-              color: green[500],
-              position: 'absolute',
-              top: -6,
-              left: -6,
-              zIndex: 1,
-            }}
+           color="inherit"
+      
           />
         ) :       <SaveIcon />}
   </Fab>
