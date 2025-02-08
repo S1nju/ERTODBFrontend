@@ -508,8 +508,8 @@ setOpen3(true);
 
 
 
-{saveAlerts&& <Alert style={{position:"absolute"}} severity="success">Save Success</Alert> }
-{saveAlert&& <Alert style={{position:"absolute"}}  severity="error">Save Failed</Alert> }
+{saveAlerts&& <Alert style={{position:"absolute",top:"20%",right:'50%'}} severity="success">Save Success</Alert> }
+{saveAlert&& <Alert style={{position:"absolute",top:"20%",right:'50%'}}  severity="error">Save Failed</Alert> }
 
       <ReactFlow
         nodes={nodes}
@@ -563,11 +563,11 @@ setOpen3(true);
         <DialogContent>
         <CodeMirror
         value={dbtext}
-        height="200px"
+        height="100%"
         extensions={[sql()]} // Enables SQL syntax highlighting
         onChange={(value) => settdbtext(value)}
         theme=
-          { darklight?oneDark:"light"}
+          { oneDark}
         
       />
         </DialogContent>
