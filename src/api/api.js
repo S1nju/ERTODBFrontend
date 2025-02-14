@@ -1,4 +1,4 @@
-export const baseurl = 'https://ertodbbackend-production.up.railway.app/api';
+export const baseurl = 'https://ertodbbackend-1.onrender.com/api';
 export const register = 'register';
 export const login = 'login';
 
