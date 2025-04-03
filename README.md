@@ -33,6 +33,7 @@ npm start
 
 ```
 ### ERD
+````
 +----------------+         +----------------+         +----------------+
 |     User       |         |    Diagram     |         |     Entity     |
 +----------------+         +----------------+         +----------------+
@@ -54,7 +55,7 @@ npm start
                        | isNullable     |     
                        +----------------+     
 
-
+````
 ###🔐 Authentication (Frontend Only)
 
 Backend with JWT support 
