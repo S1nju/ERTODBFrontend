@@ -56,7 +56,7 @@ npm start
                        +----------------+     
 
 ````
-###🔐 Authentication (Frontend Only)
+### 🔐 Authentication (Frontend Only)
 
 Backend with JWT support 
 
