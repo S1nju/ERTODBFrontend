@@ -11,8 +11,8 @@
 - 🔑 Define primary keys, foreign keys, and data types
 - 🔗 Connect entities with relationships (1:1, 1:N, N:M)
 - 💾 Save diagrams per user (with backend integration)
-- 🧾 Export diagram to SQL (coming soon)
-- 👤 JWT-based authentication for users (backend required)
+- 🧾 Export diagram to SQL 
+- 👤 JWT-based authentication for users 
 
 ---
 
@@ -56,7 +56,7 @@ npm start
                        +----------------+     
 
 ````
-### 🔐 Authentication (Frontend Only)
+### 🔐 Authentication
 
 Backend with JWT support 
 
