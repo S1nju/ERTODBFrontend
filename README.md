@@ -42,16 +42,16 @@ npm start
 | email          |         | title          |         | name           |
 | password_hash  |         | created_at     |         | x (canvas pos) |
 +----------------+         +----------------+         | y (canvas pos) |
-                                                      +----------------+
-
-                       +----------------+     
-                       |   Attribute    |     
-                       +----------------+     
-                       | id (PK)        |     
-                       | entity_id (FK) |     
-                       | name           |     
-                       | type           |     
-                       | isPrimaryKey   |     
+                                                   1/ +----------------+
+                                                   /
+                       +----------------+         /
+                       |   Attribute    |        /
+                       +----------------+       /
+                       | id (PK)        |      /
+                       | entity_id (FK) |     /
+                       | name           |    / 
+                       | type           | * /  
+                       | isPrimaryKey   |  /   
                        | isNullable     |     
                        +----------------+     
 
